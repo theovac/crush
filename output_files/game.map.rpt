@@ -1,0 +1,802 @@
+Analysis & Synthesis report for game
+Sun Mar  5 19:58:02 2017
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |Game|movement:mv|fsm_state
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Port Connectivity Checks: "frameBuffer:fb"
+ 14. Elapsed Time Per Partition
+ 15. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                         ;
++------------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Sun Mar  5 19:58:01 2017           ;
+; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
+; Revision Name                      ; game                                            ;
+; Top-level Entity Name              ; Game                                            ;
+; Family                             ; Cyclone II                                      ;
+; Total logic elements               ; 8,829                                           ;
+;     Total combinational functions  ; 8,801                                           ;
+;     Dedicated logic registers      ; 880                                             ;
+; Total registers                    ; 880                                             ;
+; Total pins                         ; 33                                              ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 0                                               ;
+; Embedded Multiplier 9-bit elements ; 0                                               ;
+; Total PLLs                         ; 0                                               ;
++------------------------------------+-------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP2C20F484C7       ;                    ;
+; Top-level entity name                                                      ; Game               ; game               ;
+; Family name                                                                ; Cyclone II         ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; Off                ; Off                ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                          ;
++----------------------------------+-----------------+-----------------------+----------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type             ; File Name with Absolute Path                             ; Library ;
++----------------------------------+-----------------+-----------------------+----------------------------------------------------------+---------+
+; game.vhd                         ; yes             ; Auto-Found VHDL File  ; /home/theodoros/Desktop/Projects/crush/game.vhd          ;         ;
+; framebuffer.vhd                  ; yes             ; Auto-Found VHDL File  ; /home/theodoros/Desktop/Projects/crush/framebuffer.vhd   ;         ;
+; vgacontroller.vhd                ; yes             ; Auto-Found VHDL File  ; /home/theodoros/Desktop/Projects/crush/vgacontroller.vhd ;         ;
+; sprite_rom.vhd                   ; yes             ; Auto-Found VHDL File  ; /home/theodoros/Desktop/Projects/crush/sprite_rom.vhd    ;         ;
+; movement.vhd                     ; yes             ; Auto-Found VHDL File  ; /home/theodoros/Desktop/Projects/crush/movement.vhd      ;         ;
+; ps2_keyboard.vhd                 ; yes             ; Auto-Found VHDL File  ; /home/theodoros/Desktop/Projects/crush/ps2_keyboard.vhd  ;         ;
+; swap.vhd                         ; yes             ; Auto-Found VHDL File  ; /home/theodoros/Desktop/Projects/crush/swap.vhd          ;         ;
+; score.vhd                        ; yes             ; Auto-Found VHDL File  ; /home/theodoros/Desktop/Projects/crush/score.vhd         ;         ;
++----------------------------------+-----------------+-----------------------+----------------------------------------------------------+---------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Estimated Total logic elements              ; 8,829 ;
+;                                             ;       ;
+; Total combinational functions               ; 8801  ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 6524  ;
+;     -- 3 input functions                    ; 1948  ;
+;     -- <=2 input functions                  ; 329   ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 8707  ;
+;     -- arithmetic mode                      ; 94    ;
+;                                             ;       ;
+; Total registers                             ; 880   ;
+;     -- Dedicated logic registers            ; 880   ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 33    ;
+; Embedded Multiplier 9-bit elements          ; 0     ;
+; Maximum fan-out node                        ; clk   ;
+; Maximum fan-out                             ; 880   ;
+; Total fan-out                               ; 35627 ;
+; Average fan-out                             ; 3.67  ;
++---------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                             ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------+--------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name     ; Library Name ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------+--------------+
+; |Game                      ; 8801 (0)          ; 880 (0)      ; 0           ; 0            ; 0       ; 0         ; 33   ; 0            ; |Game                   ; work         ;
+;    |frameBuffer:fb|        ; 8122 (8122)       ; 738 (738)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Game|frameBuffer:fb    ; work         ;
+;    |movement:mv|           ; 48 (48)           ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Game|movement:mv       ; work         ;
+;    |ps2_keyboard:ps2|      ; 192 (192)         ; 41 (41)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Game|ps2_keyboard:ps2  ; work         ;
+;    |score:sc|              ; 15 (15)           ; 14 (14)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Game|score:sc          ; work         ;
+;    |sprite_rom:rom|        ; 255 (255)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Game|sprite_rom:rom    ; work         ;
+;    |swap:sw|               ; 16 (16)           ; 21 (21)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Game|swap:sw           ; work         ;
+;    |vgaController:vga|     ; 153 (153)         ; 34 (34)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Game|vgaController:vga ; work         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------+
+; State Machine - |Game|movement:mv|fsm_state                                       ;
++-------------+-------------+-------------+-------------+-------------+-------------+
+; Name        ; fsm_state.E ; fsm_state.D ; fsm_state.C ; fsm_state.B ; fsm_state.A ;
++-------------+-------------+-------------+-------------+-------------+-------------+
+; fsm_state.A ; 0           ; 0           ; 0           ; 0           ; 0           ;
+; fsm_state.B ; 0           ; 0           ; 0           ; 1           ; 1           ;
+; fsm_state.C ; 0           ; 0           ; 1           ; 0           ; 1           ;
+; fsm_state.D ; 0           ; 1           ; 0           ; 0           ; 1           ;
+; fsm_state.E ; 1           ; 0           ; 0           ; 0           ; 1           ;
++-------------+-------------+-------------+-------------+-------------+-------------+
+
+
++----------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                     ;
++------------------------------------------+---------------------------------------------+
+; Register name                            ; Reason for Removal                          ;
++------------------------------------------+---------------------------------------------+
+; frameBuffer:fb|\process_2:counter[2..31] ; Stuck at GND due to stuck port data_in      ;
+; frameBuffer:fb|dataInG[0..2]             ; Stuck at GND due to stuck port data_in      ;
+; ps2_keyboard:ps2|lock_right[2..9,11..30] ; Merged with ps2_keyboard:ps2|lock_right[10] ;
+; ps2_keyboard:ps2|lock_left[2..9,11..30]  ; Merged with ps2_keyboard:ps2|lock_left[10]  ;
+; ps2_keyboard:ps2|lock_down[2..9,11..30]  ; Merged with ps2_keyboard:ps2|lock_down[10]  ;
+; ps2_keyboard:ps2|lock_up[2..9,11..30]    ; Merged with ps2_keyboard:ps2|lock_up[10]    ;
+; frameBuffer:fb|three[7]                  ; Merged with frameBuffer:fb|one[7]           ;
+; frameBuffer:fb|three[3]                  ; Merged with frameBuffer:fb|one[3]           ;
+; frameBuffer:fb|dir[3..9,11..31]          ; Merged with frameBuffer:fb|dir[10]          ;
+; frameBuffer:fb|wAddrG[4]                 ; Merged with frameBuffer:fb|wAddrG[20]       ;
+; frameBuffer:fb|wAddrG[16]                ; Merged with frameBuffer:fb|wAddrG[0]        ;
+; ps2_keyboard:ps2|lock_sel[2..9,11..30]   ; Merged with ps2_keyboard:ps2|lock_sel[10]   ;
+; frameBuffer:fb|dir[10]                   ; Stuck at GND due to stuck port data_in      ;
+; movement:mv|col[0]                       ; Lost fanout                                 ;
+; frameBuffer:fb|counter[1..31]            ; Stuck at GND due to stuck port data_in      ;
+; swap:sw|counter[1..30]                   ; Stuck at GND due to stuck port data_in      ;
+; ps2_keyboard:ps2|lock_right[10]          ; Stuck at GND due to stuck port data_in      ;
+; ps2_keyboard:ps2|lock_sel[10]            ; Stuck at GND due to stuck port data_in      ;
+; ps2_keyboard:ps2|lock_down[10]           ; Stuck at GND due to stuck port data_in      ;
+; swap:sw|counter[31]                      ; Stuck at GND due to stuck port data_in      ;
+; Total Number of Removed Registers = 272  ;                                             ;
++------------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 880   ;
+; Number of registers using Synchronous Clear  ; 49    ;
+; Number of registers using Synchronous Load   ; 167   ;
+; Number of registers using Asynchronous Clear ; 142   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 758   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------+
+; Inverted Register Statistics                      ;
++-----------------------------------------+---------+
+; Inverted Register                       ; Fan out ;
++-----------------------------------------+---------+
+; score:sc|temp_hex00                     ; 1       ;
+; score:sc|temp_hex01                     ; 1       ;
+; score:sc|temp_hex02                     ; 1       ;
+; score:sc|temp_hex03                     ; 1       ;
+; score:sc|temp_hex04                     ; 1       ;
+; score:sc|temp_hex05                     ; 1       ;
+; score:sc|temp_hex10                     ; 1       ;
+; score:sc|temp_hex11                     ; 1       ;
+; score:sc|temp_hex12                     ; 1       ;
+; score:sc|temp_hex13                     ; 1       ;
+; score:sc|temp_hex14                     ; 1       ;
+; score:sc|temp_hex15                     ; 1       ;
+; movement:mv|row_player[0]               ; 12      ;
+; movement:mv|row_player[2]               ; 9       ;
+; movement:mv|row_player[1]               ; 11      ;
+; movement:mv|col_player[2]               ; 7       ;
+; movement:mv|col_player[1]               ; 9       ;
+; movement:mv|col_player[0]               ; 12      ;
+; frameBuffer:fb|tempVector[1]            ; 35      ;
+; ps2_keyboard:ps2|lock_sel[31]           ; 4       ;
+; ps2_keyboard:ps2|lock_sel[0]            ; 4       ;
+; ps2_keyboard:ps2|lock_right[31]         ; 5       ;
+; ps2_keyboard:ps2|lock_right[0]          ; 5       ;
+; ps2_keyboard:ps2|lock_up[0]             ; 4       ;
+; ps2_keyboard:ps2|lock_up[31]            ; 3       ;
+; ps2_keyboard:ps2|lock_left[0]           ; 4       ;
+; ps2_keyboard:ps2|lock_left[31]          ; 4       ;
+; ps2_keyboard:ps2|lock_down[0]           ; 5       ;
+; ps2_keyboard:ps2|lock_down[31]          ; 5       ;
+; Total number of inverted registers = 29 ;         ;
++-----------------------------------------+---------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |Game|frameBuffer:fb|\initialize:counter[22] ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |Game|frameBuffer:fb|tempVector[2]           ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |Game|frameBuffer:fb|two[3]                  ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |Game|ps2_keyboard:ps2|counter[0]            ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 32 LEs               ; 64 LEs                 ; Yes        ; |Game|frameBuffer:fb|counter[25]             ;
+; 5:1                ; 5 bits    ; 15 LEs        ; 10 LEs               ; 5 LEs                  ; Yes        ; |Game|frameBuffer:fb|two[9]                  ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |Game|frameBuffer:fb|two[5]                  ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |Game|movement:mv|row[3]                     ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |Game|movement:mv|col[2]                     ;
+; 10:1               ; 3 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |Game|frameBuffer:fb|one[2]                  ;
+; 261:1              ; 3 bits    ; 522 LEs       ; 45 LEs               ; 477 LEs                ; Yes        ; |Game|ps2_keyboard:ps2|key[2]                ;
+; 7:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |Game|frameBuffer:fb|score_t[3]              ;
+; 19:1               ; 4 bits    ; 48 LEs        ; 4 LEs                ; 44 LEs                 ; Yes        ; |Game|frameBuffer:fb|score10_t[1]            ;
+; 33:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[0][0][2]             ;
+; 33:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[0][1][1]             ;
+; 33:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[0][14][1]            ;
+; 33:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[0][15][2]            ;
+; 33:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[1][0][2]             ;
+; 33:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[1][1][0]             ;
+; 33:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[1][14][1]            ;
+; 33:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[1][15][1]            ;
+; 33:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[2][0][2]             ;
+; 33:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[2][1][1]             ;
+; 33:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[2][14][2]            ;
+; 33:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[2][15][1]            ;
+; 33:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[3][0][1]             ;
+; 33:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[3][1][1]             ;
+; 33:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[3][14][0]            ;
+; 33:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[3][15][1]            ;
+; 33:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[4][0][1]             ;
+; 33:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[4][1][1]             ;
+; 33:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[4][14][2]            ;
+; 33:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[4][15][0]            ;
+; 33:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[5][0][0]             ;
+; 33:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[5][1][0]             ;
+; 33:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[5][14][2]            ;
+; 33:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[5][15][1]            ;
+; 33:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[6][0][2]             ;
+; 33:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[6][1][2]             ;
+; 33:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[6][14][0]            ;
+; 33:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[6][15][1]            ;
+; 33:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[7][0][0]             ;
+; 33:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[7][1][2]             ;
+; 33:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[7][14][1]            ;
+; 33:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[7][15][2]            ;
+; 33:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[8][0][2]             ;
+; 33:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[8][1][0]             ;
+; 33:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[8][14][1]            ;
+; 33:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[8][15][2]            ;
+; 33:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[9][0][2]             ;
+; 33:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[9][1][2]             ;
+; 33:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[9][14][0]            ;
+; 33:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[9][15][0]            ;
+; 33:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[10][0][2]            ;
+; 33:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[10][1][2]            ;
+; 33:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[10][14][2]           ;
+; 33:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[10][15][2]           ;
+; 33:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[11][0][2]            ;
+; 33:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[11][1][2]            ;
+; 33:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[11][14][2]           ;
+; 33:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[11][15][1]           ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[1][2][2]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[1][3][1]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[1][4][0]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[1][5][0]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[1][6][0]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[1][7][2]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[1][8][2]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[1][9][2]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[1][10][2]            ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[1][11][1]            ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[1][12][1]            ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[1][13][1]            ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[2][2][0]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[2][3][0]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[2][4][0]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[2][5][0]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[2][6][0]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[2][7][0]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[2][8][0]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[2][9][1]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[2][10][0]            ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[2][11][0]            ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[2][12][0]            ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[2][13][0]            ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[3][2][0]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[3][3][1]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[3][4][2]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[3][5][1]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[3][6][0]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[3][7][0]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[3][8][1]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[3][9][0]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[3][10][1]            ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[3][11][1]            ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[3][12][2]            ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[3][13][2]            ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[4][2][1]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[4][3][2]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[4][4][0]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[4][5][1]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[4][6][1]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[4][7][1]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[4][8][1]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[4][9][0]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[4][10][0]            ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[4][11][0]            ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[4][12][1]            ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[4][13][1]            ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[5][2][0]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[5][3][2]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[5][4][1]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[5][5][0]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[5][6][0]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[5][7][2]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[5][8][2]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[5][9][1]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[5][10][0]            ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[5][11][0]            ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[5][12][2]            ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[5][13][2]            ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[6][2][1]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[6][3][1]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[6][4][0]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[6][5][1]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[6][6][1]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[6][7][2]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[6][8][2]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[6][9][2]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[6][10][0]            ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[6][11][0]            ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[6][12][0]            ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[6][13][0]            ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[7][2][2]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[7][3][1]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[7][4][1]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[7][5][1]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[7][6][2]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[7][7][2]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[7][8][1]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[7][9][1]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[7][10][1]            ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[7][11][1]            ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[7][12][1]            ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[7][13][1]            ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[8][2][1]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[8][3][1]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[8][4][1]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[8][5][0]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[8][6][2]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[8][7][0]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[8][8][0]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[8][9][0]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[8][10][0]            ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[8][11][1]            ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[8][12][0]            ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[8][13][1]            ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[9][2][2]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[9][3][2]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[9][4][1]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[9][5][2]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[9][6][2]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[9][7][1]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[9][8][2]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[9][9][2]             ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[9][10][2]            ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[9][11][1]            ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[9][12][1]            ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[9][13][1]            ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[10][2][0]            ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[10][3][0]            ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[10][4][2]            ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[10][5][0]            ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[10][6][0]            ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[10][7][1]            ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[10][8][1]            ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[10][9][0]            ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[10][10][0]           ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[10][11][2]           ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[10][12][1]           ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[10][13][2]           ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[11][2][1]            ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[11][3][1]            ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[11][4][1]            ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[11][5][0]            ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[11][6][0]            ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[11][7][0]            ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[11][8][0]            ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[11][9][0]            ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[11][10][1]           ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[11][11][0]           ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[11][12][1]           ;
+; 34:1               ; 3 bits    ; 66 LEs        ; 6 LEs                ; 60 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[11][13][0]           ;
+; 35:1               ; 3 bits    ; 69 LEs        ; 12 LEs               ; 57 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[0][2][2]             ;
+; 35:1               ; 3 bits    ; 69 LEs        ; 12 LEs               ; 57 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[0][3][0]             ;
+; 35:1               ; 3 bits    ; 69 LEs        ; 12 LEs               ; 57 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[0][4][1]             ;
+; 35:1               ; 3 bits    ; 69 LEs        ; 12 LEs               ; 57 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[0][5][0]             ;
+; 35:1               ; 3 bits    ; 69 LEs        ; 12 LEs               ; 57 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[0][6][0]             ;
+; 35:1               ; 3 bits    ; 69 LEs        ; 12 LEs               ; 57 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[0][7][1]             ;
+; 35:1               ; 3 bits    ; 69 LEs        ; 12 LEs               ; 57 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[0][8][0]             ;
+; 35:1               ; 3 bits    ; 69 LEs        ; 12 LEs               ; 57 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[0][9][0]             ;
+; 35:1               ; 3 bits    ; 69 LEs        ; 12 LEs               ; 57 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[0][10][2]            ;
+; 35:1               ; 3 bits    ; 69 LEs        ; 12 LEs               ; 57 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[0][11][2]            ;
+; 35:1               ; 3 bits    ; 69 LEs        ; 12 LEs               ; 57 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[0][12][2]            ;
+; 35:1               ; 3 bits    ; 69 LEs        ; 12 LEs               ; 57 LEs                 ; Yes        ; |Game|frameBuffer:fb|fb[0][13][2]            ;
+; 106:1              ; 3 bits    ; 210 LEs       ; 204 LEs              ; 6 LEs                  ; Yes        ; |Game|frameBuffer:fb|three[2]                ;
+; 133:1              ; 8 bits    ; 704 LEs       ; 704 LEs              ; 0 LEs                  ; Yes        ; |Game|frameBuffer:fb|fillCol[2]              ;
+; 133:1              ; 3 bits    ; 264 LEs       ; 264 LEs              ; 0 LEs                  ; Yes        ; |Game|frameBuffer:fb|fillData[0]             ;
+; 135:1              ; 8 bits    ; 720 LEs       ; 704 LEs              ; 16 LEs                 ; Yes        ; |Game|frameBuffer:fb|nullRow[3]              ;
+; 208:1              ; 3 bits    ; 414 LEs       ; 408 LEs              ; 6 LEs                  ; Yes        ; |Game|frameBuffer:fb|two[0]                  ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |Game|movement:mv|row_player[0]              ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |Game|movement:mv|col_player[2]              ;
+; 261:1              ; 2 bits    ; 348 LEs       ; 2 LEs                ; 346 LEs                ; Yes        ; |Game|ps2_keyboard:ps2|lock_sel[0]           ;
+; 261:1              ; 2 bits    ; 348 LEs       ; 2 LEs                ; 346 LEs                ; Yes        ; |Game|ps2_keyboard:ps2|lock_right[31]        ;
+; 261:1              ; 2 bits    ; 348 LEs       ; 2 LEs                ; 346 LEs                ; Yes        ; |Game|ps2_keyboard:ps2|lock_up[31]           ;
+; 261:1              ; 2 bits    ; 348 LEs       ; 2 LEs                ; 346 LEs                ; Yes        ; |Game|ps2_keyboard:ps2|lock_left[31]         ;
+; 261:1              ; 2 bits    ; 348 LEs       ; 2 LEs                ; 346 LEs                ; Yes        ; |Game|ps2_keyboard:ps2|lock_down[0]          ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|tempVector              ;
+; 6:1                ; 5 bits    ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |Game|movement:mv|fsm_state                  ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|Mux119                  ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|Mux125                  ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|Mux114                  ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|Mux120                  ;
+; 8:1                ; 36 bits   ; 180 LEs       ; 180 LEs              ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|Mux107                  ;
+; 8:1                ; 36 bits   ; 180 LEs       ; 180 LEs              ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|Mux288                  ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|Mux284                  ;
+; 11:1               ; 2 bits    ; 14 LEs        ; 12 LEs               ; 2 LEs                  ; No         ; |Game|vgaController:vga|b                    ;
+; 11:1               ; 2 bits    ; 14 LEs        ; 12 LEs               ; 2 LEs                  ; No         ; |Game|frameBuffer:fb|rRow[3]                 ;
+; 13:1               ; 2 bits    ; 16 LEs        ; 12 LEs               ; 4 LEs                  ; No         ; |Game|frameBuffer:fb|rCol[3]                 ;
+; 13:1               ; 3 bits    ; 24 LEs        ; 3 LEs                ; 21 LEs                 ; No         ; |Game|sprite_rom:rom|row[2]                  ;
+; 17:1               ; 3 bits    ; 33 LEs        ; 3 LEs                ; 30 LEs                 ; No         ; |Game|vgaController:vga|col[0]               ;
+; 48:1               ; 3 bits    ; 96 LEs        ; 96 LEs               ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|Mux203                  ;
+; 48:1               ; 3 bits    ; 96 LEs        ; 96 LEs               ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|Mux281                  ;
+; 96:1               ; 3 bits    ; 192 LEs       ; 192 LEs              ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|Mux162                  ;
+; 96:1               ; 3 bits    ; 192 LEs       ; 192 LEs              ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|Mux242                  ;
+; 192:1              ; 3 bits    ; 384 LEs       ; 384 LEs              ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|Mux36                   ;
+; 192:1              ; 3 bits    ; 384 LEs       ; 384 LEs              ; 0 LEs                  ; No         ; |Game|frameBuffer:fb|Mux77                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
+
+
++--------------------------------------------+
+; Port Connectivity Checks: "frameBuffer:fb" ;
++------+-------+----------+------------------+
+; Port ; Type  ; Severity ; Details          ;
++------+-------+----------+------------------+
+; fben ; Input ; Info     ; Stuck at VCC     ;
+; we   ; Input ; Info     ; Stuck at VCC     ;
++------+-------+----------+------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:02:59     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Sun Mar  5 19:54:57 2017
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off crush -c game
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Warning (12125): Using design file game.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: Game-bhv
+    Info (12023): Found entity 1: Game
+Info (12127): Elaborating entity "Game" for the top level hierarchy
+Warning (10541): VHDL Signal Declaration warning at game.vhd(20): used implicit default value for signal "test" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10036): Verilog HDL or VHDL warning at game.vhd(72): object "init" assigned a value but never read
+Warning (10541): VHDL Signal Declaration warning at game.vhd(73): used implicit default value for signal "init_done" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at game.vhd(80): used implicit default value for signal "scoreOnesData" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at game.vhd(81): used implicit default value for signal "scoreTensData" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10492): VHDL Process Statement warning at game.vhd(241): signal "rst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (12125): Using design file framebuffer.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: frameBuffer-bhv
+    Info (12023): Found entity 1: frameBuffer
+Info (12128): Elaborating entity "frameBuffer" for hierarchy "frameBuffer:fb"
+Warning (10036): Verilog HDL or VHDL warning at framebuffer.vhd(47): object "playerRow" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at framebuffer.vhd(47): object "playerCol" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at framebuffer.vhd(66): object "flag" assigned a value but never read
+Warning (10492): VHDL Process Statement warning at framebuffer.vhd(382): signal "rst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "fb" into its bus
+Warning (12125): Using design file vgacontroller.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: vgaController-bhv
+    Info (12023): Found entity 1: vgaController
+Info (12128): Elaborating entity "vgaController" for hierarchy "vgaController:vga"
+Warning (12125): Using design file sprite_rom.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: sprite_rom-sprite
+    Info (12023): Found entity 1: sprite_rom
+Info (12128): Elaborating entity "sprite_rom" for hierarchy "sprite_rom:rom"
+Warning (12125): Using design file movement.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: movement-RTL
+    Info (12023): Found entity 1: movement
+Info (12128): Elaborating entity "movement" for hierarchy "movement:mv"
+Warning (12125): Using design file ps2_keyboard.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: ps2_keyboard-bhv
+    Info (12023): Found entity 1: ps2_keyboard
+Info (12128): Elaborating entity "ps2_keyboard" for hierarchy "ps2_keyboard:ps2"
+Warning (12125): Using design file swap.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: swap-RTL
+    Info (12023): Found entity 1: swap
+Info (12128): Elaborating entity "swap" for hierarchy "swap:sw"
+Warning (12125): Using design file score.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: score-bhv
+    Info (12023): Found entity 1: score
+Info (12128): Elaborating entity "score" for hierarchy "score:sc"
+Info (13000): Registers with preset signals will power-up high
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "test" is stuck at GND
+Critical Warning (18061): Ignored Power-Up Level option on the following registers
+    Critical Warning (18010): Register swap:sw|counter[31] will power up to Low
+    Critical Warning (18010): Register swap:sw|counter[0] will power up to Low
+    Critical Warning (18010): Register frameBuffer:fb|slowdown[31] will power up to Low
+    Critical Warning (18010): Register frameBuffer:fb|slowdown[0] will power up to Low
+Info (17049): 1 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 8875 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 4 input pins
+    Info (21059): Implemented 29 output pins
+    Info (21061): Implemented 8842 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 26 warnings
+    Info: Peak virtual memory: 769 megabytes
+    Info: Processing ended: Sun Mar  5 19:58:02 2017
+    Info: Elapsed time: 00:03:05
+    Info: Total CPU time (on all processors): 00:03:03
+
+

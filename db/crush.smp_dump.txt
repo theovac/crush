@@ -1,0 +1,8 @@
+
+State Machine - |Game|movement:mv|fsm_state
+Name fsm_state.E fsm_state.D fsm_state.C fsm_state.B fsm_state.A 
+fsm_state.A 0 0 0 0 0 
+fsm_state.B 0 0 0 1 1 
+fsm_state.C 0 0 1 0 1 
+fsm_state.D 0 1 0 0 1 
+fsm_state.E 1 0 0 0 1 

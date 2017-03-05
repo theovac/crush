@@ -1,0 +1,1257 @@
+TimeQuest Timing Analyzer report for game
+Sun Mar  5 20:00:25 2017
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Slow Model Fmax Summary
+  6. Slow Model Setup Summary
+  7. Slow Model Hold Summary
+  8. Slow Model Recovery Summary
+  9. Slow Model Removal Summary
+ 10. Slow Model Minimum Pulse Width Summary
+ 11. Slow Model Setup: 'clk'
+ 12. Slow Model Hold: 'clk'
+ 13. Slow Model Minimum Pulse Width: 'clk'
+ 14. Setup Times
+ 15. Hold Times
+ 16. Clock to Output Times
+ 17. Minimum Clock to Output Times
+ 18. Fast Model Setup Summary
+ 19. Fast Model Hold Summary
+ 20. Fast Model Recovery Summary
+ 21. Fast Model Removal Summary
+ 22. Fast Model Minimum Pulse Width Summary
+ 23. Fast Model Setup: 'clk'
+ 24. Fast Model Hold: 'clk'
+ 25. Fast Model Minimum Pulse Width: 'clk'
+ 26. Setup Times
+ 27. Hold Times
+ 28. Clock to Output Times
+ 29. Minimum Clock to Output Times
+ 30. Multicorner Timing Analysis Summary
+ 31. Setup Times
+ 32. Hold Times
+ 33. Clock to Output Times
+ 34. Minimum Clock to Output Times
+ 35. Setup Transfers
+ 36. Hold Transfers
+ 37. Report TCCS
+ 38. Report RSKM
+ 39. Unconstrained Paths
+ 40. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                                      ;
++--------------------+-------------------------------------------------------------------+
+; Quartus II Version ; Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition ;
+; Revision Name      ; game                                                              ;
+; Device Family      ; Cyclone II                                                        ;
+; Device Name        ; EP2C20F484C7                                                      ;
+; Timing Models      ; Final                                                             ;
+; Delay Model        ; Combined                                                          ;
+; Rise/Fall Delays   ; Unavailable                                                       ;
++--------------------+-------------------------------------------------------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                          ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; clk        ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+
+
++-------------------------------------------------+
+; Slow Model Fmax Summary                         ;
++-----------+-----------------+------------+------+
+; Fmax      ; Restricted Fmax ; Clock Name ; Note ;
++-----------+-----------------+------------+------+
+; 37.62 MHz ; 37.62 MHz       ; clk        ;      ;
++-----------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++---------------------------------+
+; Slow Model Setup Summary        ;
++-------+---------+---------------+
+; Clock ; Slack   ; End Point TNS ;
++-------+---------+---------------+
+; clk   ; -25.580 ; -13554.896    ;
++-------+---------+---------------+
+
+
++-------------------------------+
+; Slow Model Hold Summary       ;
++-------+-------+---------------+
+; Clock ; Slack ; End Point TNS ;
++-------+-------+---------------+
+; clk   ; 0.445 ; 0.000         ;
++-------+-------+---------------+
+
+
+-------------------------------
+; Slow Model Recovery Summary ;
+-------------------------------
+No paths to report.
+
+
+------------------------------
+; Slow Model Removal Summary ;
+------------------------------
+No paths to report.
+
+
++----------------------------------------+
+; Slow Model Minimum Pulse Width Summary ;
++-------+--------+-----------------------+
+; Clock ; Slack  ; End Point TNS         ;
++-------+--------+-----------------------+
+; clk   ; -1.631 ; -1076.991             ;
++-------+--------+-----------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Setup: 'clk'                                                                                                                 ;
++---------+-------------------------------+-------------------------+--------------+-------------+--------------+------------+------------+
+; Slack   ; From Node                     ; To Node                 ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++---------+-------------------------------+-------------------------+--------------+-------------+--------------+------------+------------+
+; -25.580 ; frameBuffer:fb|checkCol[2]    ; frameBuffer:fb|three[1] ; clk          ; clk         ; 1.000        ; 0.000      ; 26.618     ;
+; -25.535 ; frameBuffer:fb|fb[11][0][1]   ; frameBuffer:fb|three[1] ; clk          ; clk         ; 1.000        ; 0.002      ; 26.575     ;
+; -25.434 ; frameBuffer:fb|fb[11][3][1]   ; frameBuffer:fb|three[1] ; clk          ; clk         ; 1.000        ; -0.004     ; 26.468     ;
+; -25.402 ; frameBuffer:fb|dir[1]         ; frameBuffer:fb|three[1] ; clk          ; clk         ; 1.000        ; 0.000      ; 26.440     ;
+; -25.271 ; frameBuffer:fb|checkCol[3]    ; frameBuffer:fb|three[1] ; clk          ; clk         ; 1.000        ; 0.000      ; 26.309     ;
+; -25.264 ; frameBuffer:fb|checkCol[1]    ; frameBuffer:fb|three[1] ; clk          ; clk         ; 1.000        ; 0.000      ; 26.302     ;
+; -25.262 ; frameBuffer:fb|fb[11][1][1]   ; frameBuffer:fb|three[1] ; clk          ; clk         ; 1.000        ; 0.002      ; 26.302     ;
+; -25.115 ; frameBuffer:fb|fb[11][6][1]   ; frameBuffer:fb|three[1] ; clk          ; clk         ; 1.000        ; -0.012     ; 26.141     ;
+; -25.100 ; frameBuffer:fb|fb[11][2][1]   ; frameBuffer:fb|three[1] ; clk          ; clk         ; 1.000        ; 0.001      ; 26.139     ;
+; -25.068 ; frameBuffer:fb|fb[11][14][1]  ; frameBuffer:fb|three[1] ; clk          ; clk         ; 1.000        ; 0.010      ; 26.116     ;
+; -25.064 ; frameBuffer:fb|fb[11][8][1]   ; frameBuffer:fb|three[1] ; clk          ; clk         ; 1.000        ; 0.008      ; 26.110     ;
+; -25.020 ; frameBuffer:fb|checkCol[0]    ; frameBuffer:fb|three[1] ; clk          ; clk         ; 1.000        ; 0.001      ; 26.059     ;
+; -24.943 ; frameBuffer:fb|fb[11][15][1]  ; frameBuffer:fb|three[1] ; clk          ; clk         ; 1.000        ; -0.004     ; 25.977     ;
+; -24.928 ; frameBuffer:fb|fb[11][9][1]   ; frameBuffer:fb|three[1] ; clk          ; clk         ; 1.000        ; -0.005     ; 25.961     ;
+; -24.904 ; frameBuffer:fb|fb[11][7][1]   ; frameBuffer:fb|three[1] ; clk          ; clk         ; 1.000        ; -0.004     ; 25.938     ;
+; -24.847 ; frameBuffer:fb|fb[11][4][1]   ; frameBuffer:fb|three[1] ; clk          ; clk         ; 1.000        ; -0.009     ; 25.876     ;
+; -24.679 ; frameBuffer:fb|fb[11][5][1]   ; frameBuffer:fb|three[1] ; clk          ; clk         ; 1.000        ; -0.005     ; 25.712     ;
+; -24.546 ; frameBuffer:fb|fb[11][10][1]  ; frameBuffer:fb|three[1] ; clk          ; clk         ; 1.000        ; 0.002      ; 25.586     ;
+; -24.512 ; frameBuffer:fb|fb[11][11][1]  ; frameBuffer:fb|three[1] ; clk          ; clk         ; 1.000        ; -0.012     ; 25.538     ;
+; -24.222 ; frameBuffer:fb|fb[10][3][1]   ; frameBuffer:fb|three[1] ; clk          ; clk         ; 1.000        ; 0.001      ; 25.261     ;
+; -24.178 ; frameBuffer:fb|checkRow[0]    ; frameBuffer:fb|three[1] ; clk          ; clk         ; 1.000        ; -0.005     ; 25.211     ;
+; -24.117 ; frameBuffer:fb|checkCol[0]    ; frameBuffer:fb|three[2] ; clk          ; clk         ; 1.000        ; 0.007      ; 25.162     ;
+; -24.113 ; frameBuffer:fb|fb[11][3][2]   ; frameBuffer:fb|three[2] ; clk          ; clk         ; 1.000        ; -0.005     ; 25.146     ;
+; -24.077 ; frameBuffer:fb|fb[10][2][1]   ; frameBuffer:fb|three[1] ; clk          ; clk         ; 1.000        ; 0.001      ; 25.116     ;
+; -24.074 ; frameBuffer:fb|fb[11][2][2]   ; frameBuffer:fb|three[2] ; clk          ; clk         ; 1.000        ; -0.002     ; 25.110     ;
+; -24.045 ; frameBuffer:fb|fb[11][12][1]  ; frameBuffer:fb|three[1] ; clk          ; clk         ; 1.000        ; -0.003     ; 25.080     ;
+; -24.023 ; frameBuffer:fb|checkCol[2]    ; frameBuffer:fb|three[2] ; clk          ; clk         ; 1.000        ; 0.006      ; 25.067     ;
+; -24.011 ; frameBuffer:fb|checkRow[1]    ; frameBuffer:fb|three[1] ; clk          ; clk         ; 1.000        ; -0.005     ; 25.044     ;
+; -23.926 ; frameBuffer:fb|fb[10][1][1]   ; frameBuffer:fb|three[1] ; clk          ; clk         ; 1.000        ; -0.013     ; 24.951     ;
+; -23.845 ; frameBuffer:fb|dir[1]         ; frameBuffer:fb|three[2] ; clk          ; clk         ; 1.000        ; 0.006      ; 24.889     ;
+; -23.751 ; frameBuffer:fb|fb[11][1][2]   ; frameBuffer:fb|three[2] ; clk          ; clk         ; 1.000        ; -0.002     ; 24.787     ;
+; -23.707 ; frameBuffer:fb|checkCol[1]    ; frameBuffer:fb|three[2] ; clk          ; clk         ; 1.000        ; 0.006      ; 24.751     ;
+; -23.642 ; frameBuffer:fb|checkCol[3]    ; frameBuffer:fb|three[2] ; clk          ; clk         ; 1.000        ; 0.006      ; 24.686     ;
+; -23.639 ; frameBuffer:fb|fb[11][5][2]   ; frameBuffer:fb|three[2] ; clk          ; clk         ; 1.000        ; -0.006     ; 24.671     ;
+; -23.581 ; frameBuffer:fb|fb[10][4][1]   ; frameBuffer:fb|three[1] ; clk          ; clk         ; 1.000        ; 0.005      ; 24.624     ;
+; -23.565 ; frameBuffer:fb|fb[11][7][2]   ; frameBuffer:fb|three[2] ; clk          ; clk         ; 1.000        ; 0.002      ; 24.605     ;
+; -23.562 ; frameBuffer:fb|fb[11][13][1]  ; frameBuffer:fb|three[1] ; clk          ; clk         ; 1.000        ; 0.008      ; 24.608     ;
+; -23.557 ; frameBuffer:fb|fb[11][0][2]   ; frameBuffer:fb|three[2] ; clk          ; clk         ; 1.000        ; -0.002     ; 24.593     ;
+; -23.483 ; frameBuffer:fb|fb[11][4][2]   ; frameBuffer:fb|three[2] ; clk          ; clk         ; 1.000        ; -0.003     ; 24.518     ;
+; -23.373 ; frameBuffer:fb|fb[11][6][2]   ; frameBuffer:fb|three[2] ; clk          ; clk         ; 1.000        ; -0.003     ; 24.408     ;
+; -23.334 ; frameBuffer:fb|fb[10][0][1]   ; frameBuffer:fb|three[1] ; clk          ; clk         ; 1.000        ; -0.014     ; 24.358     ;
+; -23.304 ; frameBuffer:fb|fb[10][11][1]  ; frameBuffer:fb|three[1] ; clk          ; clk         ; 1.000        ; -0.009     ; 24.333     ;
+; -23.229 ; frameBuffer:fb|fb[10][5][1]   ; frameBuffer:fb|three[1] ; clk          ; clk         ; 1.000        ; 0.005      ; 24.272     ;
+; -23.056 ; frameBuffer:fb|fb[9][1][1]    ; frameBuffer:fb|three[1] ; clk          ; clk         ; 1.000        ; 0.000      ; 24.094     ;
+; -23.022 ; frameBuffer:fb|fb[11][13][2]  ; frameBuffer:fb|three[2] ; clk          ; clk         ; 1.000        ; 0.014      ; 24.074     ;
+; -23.020 ; vgaController:vga|hCounter[3] ; vgaController:vga|g[0]  ; clk          ; clk         ; 1.000        ; 0.010      ; 24.068     ;
+; -22.988 ; frameBuffer:fb|fb[11][12][2]  ; frameBuffer:fb|three[2] ; clk          ; clk         ; 1.000        ; 0.003      ; 24.029     ;
+; -22.949 ; frameBuffer:fb|fb[10][15][1]  ; frameBuffer:fb|three[1] ; clk          ; clk         ; 1.000        ; 0.009      ; 23.996     ;
+; -22.942 ; frameBuffer:fb|fb[10][10][1]  ; frameBuffer:fb|three[1] ; clk          ; clk         ; 1.000        ; -0.009     ; 23.971     ;
+; -22.911 ; frameBuffer:fb|fb[9][0][1]    ; frameBuffer:fb|three[1] ; clk          ; clk         ; 1.000        ; 0.016      ; 23.965     ;
+; -22.886 ; frameBuffer:fb|fb[11][11][2]  ; frameBuffer:fb|three[2] ; clk          ; clk         ; 1.000        ; 0.016      ; 23.940     ;
+; -22.884 ; vgaController:vga|hCounter[4] ; vgaController:vga|g[0]  ; clk          ; clk         ; 1.000        ; 0.010      ; 23.932     ;
+; -22.864 ; frameBuffer:fb|checkCol[2]    ; frameBuffer:fb|three[0] ; clk          ; clk         ; 1.000        ; 0.010      ; 23.912     ;
+; -22.766 ; frameBuffer:fb|checkRow[0]    ; frameBuffer:fb|three[2] ; clk          ; clk         ; 1.000        ; 0.001      ; 23.805     ;
+; -22.762 ; frameBuffer:fb|fb[10][6][2]   ; frameBuffer:fb|three[2] ; clk          ; clk         ; 1.000        ; -0.008     ; 23.792     ;
+; -22.750 ; frameBuffer:fb|fb[11][9][2]   ; frameBuffer:fb|three[2] ; clk          ; clk         ; 1.000        ; 0.001      ; 23.789     ;
+; -22.749 ; frameBuffer:fb|fb[10][9][1]   ; frameBuffer:fb|three[1] ; clk          ; clk         ; 1.000        ; -0.004     ; 23.783     ;
+; -22.730 ; frameBuffer:fb|fb[11][0][0]   ; frameBuffer:fb|three[0] ; clk          ; clk         ; 1.000        ; 0.012      ; 23.780     ;
+; -22.719 ; frameBuffer:fb|fb[10][6][1]   ; frameBuffer:fb|three[1] ; clk          ; clk         ; 1.000        ; 0.009      ; 23.766     ;
+; -22.694 ; vgaController:vga|hCounter[3] ; vgaController:vga|b[2]  ; clk          ; clk         ; 1.000        ; 0.010      ; 23.742     ;
+; -22.694 ; vgaController:vga|hCounter[3] ; vgaController:vga|b[3]  ; clk          ; clk         ; 1.000        ; 0.010      ; 23.742     ;
+; -22.687 ; vgaController:vga|hCounter[7] ; vgaController:vga|g[0]  ; clk          ; clk         ; 1.000        ; 0.010      ; 23.735     ;
+; -22.686 ; frameBuffer:fb|dir[1]         ; frameBuffer:fb|three[0] ; clk          ; clk         ; 1.000        ; 0.010      ; 23.734     ;
+; -22.641 ; vgaController:vga|hCounter[5] ; vgaController:vga|g[0]  ; clk          ; clk         ; 1.000        ; 0.011      ; 23.690     ;
+; -22.609 ; frameBuffer:fb|fb[10][14][1]  ; frameBuffer:fb|three[1] ; clk          ; clk         ; 1.000        ; 0.009      ; 23.656     ;
+; -22.578 ; frameBuffer:fb|fb[9][10][1]   ; frameBuffer:fb|three[1] ; clk          ; clk         ; 1.000        ; 0.011      ; 23.627     ;
+; -22.575 ; frameBuffer:fb|fb[9][7][1]    ; frameBuffer:fb|three[1] ; clk          ; clk         ; 1.000        ; 0.009      ; 23.622     ;
+; -22.558 ; vgaController:vga|hCounter[4] ; vgaController:vga|b[2]  ; clk          ; clk         ; 1.000        ; 0.010      ; 23.606     ;
+; -22.558 ; vgaController:vga|hCounter[4] ; vgaController:vga|b[3]  ; clk          ; clk         ; 1.000        ; 0.010      ; 23.606     ;
+; -22.554 ; frameBuffer:fb|fb[10][10][2]  ; frameBuffer:fb|three[2] ; clk          ; clk         ; 1.000        ; 0.015      ; 23.607     ;
+; -22.549 ; vgaController:vga|hCounter[3] ; vgaController:vga|g[3]  ; clk          ; clk         ; 1.000        ; 0.010      ; 23.597     ;
+; -22.548 ; frameBuffer:fb|checkCol[1]    ; frameBuffer:fb|three[0] ; clk          ; clk         ; 1.000        ; 0.010      ; 23.596     ;
+; -22.545 ; vgaController:vga|hCounter[3] ; vgaController:vga|g[1]  ; clk          ; clk         ; 1.000        ; 0.010      ; 23.593     ;
+; -22.529 ; vgaController:vga|hCounter[3] ; vgaController:vga|r[2]  ; clk          ; clk         ; 1.000        ; 0.010      ; 23.577     ;
+; -22.526 ; vgaController:vga|hCounter[3] ; vgaController:vga|r[1]  ; clk          ; clk         ; 1.000        ; 0.010      ; 23.574     ;
+; -22.513 ; frameBuffer:fb|fb[10][7][1]   ; frameBuffer:fb|three[1] ; clk          ; clk         ; 1.000        ; 0.009      ; 23.560     ;
+; -22.494 ; frameBuffer:fb|fb[11][10][2]  ; frameBuffer:fb|three[2] ; clk          ; clk         ; 1.000        ; 0.016      ; 23.548     ;
+; -22.492 ; frameBuffer:fb|checkCol[0]    ; frameBuffer:fb|three[0] ; clk          ; clk         ; 1.000        ; 0.011      ; 23.541     ;
+; -22.450 ; vgaController:vga|hCounter[6] ; vgaController:vga|g[0]  ; clk          ; clk         ; 1.000        ; 0.010      ; 23.498     ;
+; -22.422 ; frameBuffer:fb|fb[9][6][1]    ; frameBuffer:fb|three[1] ; clk          ; clk         ; 1.000        ; 0.009      ; 23.469     ;
+; -22.413 ; vgaController:vga|hCounter[4] ; vgaController:vga|g[3]  ; clk          ; clk         ; 1.000        ; 0.010      ; 23.461     ;
+; -22.409 ; vgaController:vga|hCounter[4] ; vgaController:vga|g[1]  ; clk          ; clk         ; 1.000        ; 0.010      ; 23.457     ;
+; -22.393 ; vgaController:vga|hCounter[4] ; vgaController:vga|r[2]  ; clk          ; clk         ; 1.000        ; 0.010      ; 23.441     ;
+; -22.391 ; frameBuffer:fb|fb[11][6][0]   ; frameBuffer:fb|three[0] ; clk          ; clk         ; 1.000        ; -0.002     ; 23.427     ;
+; -22.390 ; vgaController:vga|hCounter[4] ; vgaController:vga|r[1]  ; clk          ; clk         ; 1.000        ; 0.010      ; 23.438     ;
+; -22.377 ; frameBuffer:fb|fb[11][2][0]   ; frameBuffer:fb|three[0] ; clk          ; clk         ; 1.000        ; 0.002      ; 23.417     ;
+; -22.361 ; vgaController:vga|hCounter[7] ; vgaController:vga|b[2]  ; clk          ; clk         ; 1.000        ; 0.010      ; 23.409     ;
+; -22.361 ; vgaController:vga|hCounter[7] ; vgaController:vga|b[3]  ; clk          ; clk         ; 1.000        ; 0.010      ; 23.409     ;
+; -22.355 ; frameBuffer:fb|fb[10][8][1]   ; frameBuffer:fb|three[1] ; clk          ; clk         ; 1.000        ; -0.004     ; 23.389     ;
+; -22.352 ; frameBuffer:fb|fb[11][1][0]   ; frameBuffer:fb|three[0] ; clk          ; clk         ; 1.000        ; 0.012      ; 23.402     ;
+; -22.315 ; vgaController:vga|hCounter[5] ; vgaController:vga|b[2]  ; clk          ; clk         ; 1.000        ; 0.011      ; 23.364     ;
+; -22.315 ; vgaController:vga|hCounter[5] ; vgaController:vga|b[3]  ; clk          ; clk         ; 1.000        ; 0.011      ; 23.364     ;
+; -22.306 ; frameBuffer:fb|fb[11][15][2]  ; frameBuffer:fb|three[2] ; clk          ; clk         ; 1.000        ; 0.001      ; 23.345     ;
+; -22.280 ; frameBuffer:fb|fb[11][8][2]   ; frameBuffer:fb|three[2] ; clk          ; clk         ; 1.000        ; 0.014      ; 23.332     ;
+; -22.220 ; frameBuffer:fb|fb[9][11][1]   ; frameBuffer:fb|three[1] ; clk          ; clk         ; 1.000        ; 0.011      ; 23.269     ;
+; -22.216 ; vgaController:vga|hCounter[7] ; vgaController:vga|g[3]  ; clk          ; clk         ; 1.000        ; 0.010      ; 23.264     ;
+; -22.212 ; vgaController:vga|hCounter[7] ; vgaController:vga|g[1]  ; clk          ; clk         ; 1.000        ; 0.010      ; 23.260     ;
+; -22.196 ; vgaController:vga|hCounter[7] ; vgaController:vga|r[2]  ; clk          ; clk         ; 1.000        ; 0.010      ; 23.244     ;
+; -22.194 ; frameBuffer:fb|fb[10][13][2]  ; frameBuffer:fb|three[2] ; clk          ; clk         ; 1.000        ; 0.015      ; 23.247     ;
+; -22.193 ; vgaController:vga|hCounter[7] ; vgaController:vga|r[1]  ; clk          ; clk         ; 1.000        ; 0.010      ; 23.241     ;
++---------+-------------------------------+-------------------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Hold: 'clk'                                                                                                                                        ;
++-------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                              ; To Node                                ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.445 ; ps2_keyboard:ps2|counter[0]            ; ps2_keyboard:ps2|counter[0]            ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; ps2_keyboard:ps2|counter[1]            ; ps2_keyboard:ps2|counter[1]            ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; ps2_keyboard:ps2|counter[2]            ; ps2_keyboard:ps2|counter[2]            ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; ps2_keyboard:ps2|data[0]               ; ps2_keyboard:ps2|data[0]               ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; ps2_keyboard:ps2|data[10]              ; ps2_keyboard:ps2|data[10]              ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; ps2_keyboard:ps2|data[3]               ; ps2_keyboard:ps2|data[3]               ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; ps2_keyboard:ps2|data[2]               ; ps2_keyboard:ps2|data[2]               ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; ps2_keyboard:ps2|data[8]               ; ps2_keyboard:ps2|data[8]               ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; ps2_keyboard:ps2|data[7]               ; ps2_keyboard:ps2|data[7]               ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; ps2_keyboard:ps2|data[9]               ; ps2_keyboard:ps2|data[9]               ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; ps2_keyboard:ps2|data[6]               ; ps2_keyboard:ps2|data[6]               ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; ps2_keyboard:ps2|data[1]               ; ps2_keyboard:ps2|data[1]               ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; ps2_keyboard:ps2|data[5]               ; ps2_keyboard:ps2|data[5]               ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; ps2_keyboard:ps2|got_new               ; ps2_keyboard:ps2|got_new               ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; ps2_keyboard:ps2|data[4]               ; ps2_keyboard:ps2|data[4]               ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; ps2_keyboard:ps2|lock_up[10]           ; ps2_keyboard:ps2|lock_up[10]           ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; ps2_keyboard:ps2|lock_up[1]            ; ps2_keyboard:ps2|lock_up[1]            ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; ps2_keyboard:ps2|lock_right[1]         ; ps2_keyboard:ps2|lock_right[1]         ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; ps2_keyboard:ps2|lock_left[10]         ; ps2_keyboard:ps2|lock_left[10]         ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; ps2_keyboard:ps2|lock_left[1]          ; ps2_keyboard:ps2|lock_left[1]          ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; ps2_keyboard:ps2|lock_down[1]          ; ps2_keyboard:ps2|lock_down[1]          ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; ps2_keyboard:ps2|lock_sel[1]           ; ps2_keyboard:ps2|lock_sel[1]           ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; swap:sw|counter[0]                     ; swap:sw|counter[0]                     ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; movement:mv|fsm_state.A                ; movement:mv|fsm_state.A                ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; movement:mv|row[0]                     ; movement:mv|row[0]                     ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; movement:mv|row_player[0]              ; movement:mv|row_player[0]              ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; movement:mv|row_player[3]              ; movement:mv|row_player[3]              ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; movement:mv|row_player[1]              ; movement:mv|row_player[1]              ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; movement:mv|col_player[2]              ; movement:mv|col_player[2]              ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; movement:mv|col_player[3]              ; movement:mv|col_player[3]              ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; movement:mv|col_player[1]              ; movement:mv|col_player[1]              ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; movement:mv|col_player[0]              ; movement:mv|col_player[0]              ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; frameBuffer:fb|counter[0]              ; frameBuffer:fb|counter[0]              ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; frameBuffer:fb|\process_2:counter[0]   ; frameBuffer:fb|\process_2:counter[0]   ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; frameBuffer:fb|dir[0]                  ; frameBuffer:fb|dir[0]                  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; frameBuffer:fb|\process_2:counter[1]   ; frameBuffer:fb|\process_2:counter[1]   ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; frameBuffer:fb|checkRow[1]             ; frameBuffer:fb|checkRow[1]             ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; frameBuffer:fb|checkRow[2]             ; frameBuffer:fb|checkRow[2]             ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; frameBuffer:fb|checkRow[3]             ; frameBuffer:fb|checkRow[3]             ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; frameBuffer:fb|one[10]                 ; frameBuffer:fb|one[10]                 ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; frameBuffer:fb|one[9]                  ; frameBuffer:fb|one[9]                  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; frameBuffer:fb|one[8]                  ; frameBuffer:fb|one[8]                  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; frameBuffer:fb|one[3]                  ; frameBuffer:fb|one[3]                  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; frameBuffer:fb|one[6]                  ; frameBuffer:fb|one[6]                  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; frameBuffer:fb|one[5]                  ; frameBuffer:fb|one[5]                  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; frameBuffer:fb|one[4]                  ; frameBuffer:fb|one[4]                  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; frameBuffer:fb|three[8]                ; frameBuffer:fb|three[8]                ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; frameBuffer:fb|one[7]                  ; frameBuffer:fb|one[7]                  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; vgaController:vga|pxClk                ; vgaController:vga|pxClk                ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; vgaController:vga|vCounter[0]          ; vgaController:vga|vCounter[0]          ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; frameBuffer:fb|score10_t[1]            ; frameBuffer:fb|score10_t[1]            ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; frameBuffer:fb|score10_t[2]            ; frameBuffer:fb|score10_t[2]            ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; frameBuffer:fb|score10_t[3]            ; frameBuffer:fb|score10_t[3]            ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; frameBuffer:fb|score10_t[0]            ; frameBuffer:fb|score10_t[0]            ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; frameBuffer:fb|score_t[0]              ; frameBuffer:fb|score_t[0]              ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; frameBuffer:fb|score_t[1]              ; frameBuffer:fb|score_t[1]              ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.612 ; movement:mv|signal_left1               ; movement:mv|signal_left2               ; clk          ; clk         ; 0.000        ; 0.000      ; 0.898      ;
+; 0.612 ; movement:mv|signal_right1              ; movement:mv|signal_right2              ; clk          ; clk         ; 0.000        ; 0.000      ; 0.898      ;
+; 0.615 ; frameBuffer:fb|three[5]                ; frameBuffer:fb|wAddrG[18]              ; clk          ; clk         ; 0.000        ; 0.000      ; 0.901      ;
+; 0.621 ; ps2_keyboard:ps2|got_new               ; ps2_keyboard:ps2|internal_reset        ; clk          ; clk         ; 0.000        ; 0.000      ; 0.907      ;
+; 0.629 ; frameBuffer:fb|\initialize:counter[31] ; frameBuffer:fb|\initialize:counter[31] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.915      ;
+; 0.629 ; frameBuffer:fb|slowdown[31]            ; frameBuffer:fb|slowdown[31]            ; clk          ; clk         ; 0.000        ; 0.000      ; 0.915      ;
+; 0.642 ; swap:sw|signal_b1                      ; swap:sw|signal_b2                      ; clk          ; clk         ; 0.000        ; 0.000      ; 0.928      ;
+; 0.652 ; frameBuffer:fb|checkRow[3]             ; frameBuffer:fb|two[10]                 ; clk          ; clk         ; 0.000        ; 0.000      ; 0.938      ;
+; 0.653 ; frameBuffer:fb|checkRow[3]             ; frameBuffer:fb|checkRow[2]             ; clk          ; clk         ; 0.000        ; 0.000      ; 0.939      ;
+; 0.659 ; frameBuffer:fb|checkRow[2]             ; frameBuffer:fb|two[9]                  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.945      ;
+; 0.660 ; swap:sw|signal_b2                      ; swap:sw|signal_b3                      ; clk          ; clk         ; 0.000        ; 0.000      ; 0.946      ;
+; 0.662 ; frameBuffer:fb|checkRow[2]             ; frameBuffer:fb|checkRow[3]             ; clk          ; clk         ; 0.000        ; 0.000      ; 0.948      ;
+; 0.665 ; movement:mv|fsm_state.A                ; movement:mv|fsm_state.B                ; clk          ; clk         ; 0.000        ; 0.000      ; 0.951      ;
+; 0.666 ; movement:mv|fsm_state.A                ; movement:mv|fsm_state.D                ; clk          ; clk         ; 0.000        ; 0.000      ; 0.952      ;
+; 0.670 ; movement:mv|fsm_state.A                ; movement:mv|fsm_state.C                ; clk          ; clk         ; 0.000        ; 0.000      ; 0.956      ;
+; 0.670 ; frameBuffer:fb|dir[2]                  ; frameBuffer:fb|\process_2:counter[0]   ; clk          ; clk         ; 0.000        ; 0.000      ; 0.956      ;
+; 0.670 ; frameBuffer:fb|dir[2]                  ; frameBuffer:fb|\process_2:counter[1]   ; clk          ; clk         ; 0.000        ; 0.000      ; 0.956      ;
+; 0.671 ; frameBuffer:fb|dir[2]                  ; frameBuffer:fb|dir[0]                  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.957      ;
+; 0.673 ; movement:mv|fsm_state.A                ; movement:mv|fsm_state.E                ; clk          ; clk         ; 0.000        ; 0.000      ; 0.959      ;
+; 0.673 ; frameBuffer:fb|score_t[3]              ; score:sc|temp_hex05                    ; clk          ; clk         ; 0.000        ; 0.000      ; 0.959      ;
+; 0.675 ; frameBuffer:fb|score_t[3]              ; score:sc|temp_hex06                    ; clk          ; clk         ; 0.000        ; 0.000      ; 0.961      ;
+; 0.680 ; frameBuffer:fb|score_t[3]              ; score:sc|temp_hex01                    ; clk          ; clk         ; 0.000        ; 0.000      ; 0.966      ;
+; 0.680 ; frameBuffer:fb|score_t[3]              ; score:sc|temp_hex04                    ; clk          ; clk         ; 0.000        ; 0.000      ; 0.966      ;
+; 0.681 ; frameBuffer:fb|score_t[3]              ; score:sc|temp_hex03                    ; clk          ; clk         ; 0.000        ; 0.000      ; 0.967      ;
+; 0.682 ; frameBuffer:fb|score_t[3]              ; score:sc|temp_hex00                    ; clk          ; clk         ; 0.000        ; 0.000      ; 0.968      ;
+; 0.682 ; frameBuffer:fb|score_t[3]              ; score:sc|temp_hex02                    ; clk          ; clk         ; 0.000        ; 0.000      ; 0.968      ;
+; 0.698 ; frameBuffer:fb|score10_t[2]            ; score:sc|temp_hex16                    ; clk          ; clk         ; 0.000        ; 0.000      ; 0.984      ;
+; 0.706 ; frameBuffer:fb|score10_t[2]            ; score:sc|temp_hex15                    ; clk          ; clk         ; 0.000        ; 0.000      ; 0.992      ;
+; 0.708 ; frameBuffer:fb|score10_t[2]            ; score:sc|temp_hex12                    ; clk          ; clk         ; 0.000        ; 0.000      ; 0.994      ;
+; 0.708 ; frameBuffer:fb|score10_t[2]            ; score:sc|temp_hex13                    ; clk          ; clk         ; 0.000        ; 0.000      ; 0.994      ;
+; 0.709 ; frameBuffer:fb|score10_t[2]            ; score:sc|temp_hex10                    ; clk          ; clk         ; 0.000        ; 0.000      ; 0.995      ;
+; 0.709 ; frameBuffer:fb|score10_t[2]            ; score:sc|temp_hex11                    ; clk          ; clk         ; 0.000        ; 0.000      ; 0.995      ;
+; 0.709 ; frameBuffer:fb|score10_t[2]            ; score:sc|temp_hex14                    ; clk          ; clk         ; 0.000        ; 0.000      ; 0.995      ;
+; 0.778 ; movement:mv|row[2]                     ; movement:mv|row_player[2]              ; clk          ; clk         ; 0.000        ; 0.000      ; 1.064      ;
+; 0.779 ; movement:mv|col_player[1]              ; movement:mv|col[1]                     ; clk          ; clk         ; 0.000        ; 0.000      ; 1.065      ;
+; 0.784 ; movement:mv|signal_right2              ; movement:mv|signal_right3              ; clk          ; clk         ; 0.000        ; 0.000      ; 1.070      ;
+; 0.807 ; ps2_keyboard:ps2|edge_detect[1]        ; ps2_keyboard:ps2|edge_detect[2]        ; clk          ; clk         ; 0.000        ; 0.000      ; 1.093      ;
+; 0.837 ; frameBuffer:fb|score10_t[1]            ; score:sc|temp_hex16                    ; clk          ; clk         ; 0.000        ; 0.000      ; 1.123      ;
+; 0.839 ; frameBuffer:fb|score10_t[1]            ; score:sc|temp_hex15                    ; clk          ; clk         ; 0.000        ; 0.000      ; 1.125      ;
+; 0.841 ; frameBuffer:fb|score10_t[1]            ; score:sc|temp_hex12                    ; clk          ; clk         ; 0.000        ; 0.000      ; 1.127      ;
+; 0.841 ; frameBuffer:fb|score10_t[1]            ; score:sc|temp_hex13                    ; clk          ; clk         ; 0.000        ; 0.000      ; 1.127      ;
+; 0.842 ; frameBuffer:fb|score_t[0]              ; score:sc|temp_hex05                    ; clk          ; clk         ; 0.000        ; 0.000      ; 1.128      ;
+; 0.842 ; frameBuffer:fb|score10_t[1]            ; score:sc|temp_hex10                    ; clk          ; clk         ; 0.000        ; 0.000      ; 1.128      ;
+; 0.842 ; frameBuffer:fb|score10_t[1]            ; score:sc|temp_hex11                    ; clk          ; clk         ; 0.000        ; 0.000      ; 1.128      ;
++-------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Minimum Pulse Width: 'clk'                                                                                   ;
++--------+--------------+----------------+------------------+-------+------------+----------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target                                 ;
++--------+--------------+----------------+------------------+-------+------------+----------------------------------------+
+; -1.631 ; 1.000        ; 2.631          ; Port Rate        ; clk   ; Rise       ; clk                                    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[0]  ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[0]  ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[10] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[10] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[11] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[11] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[12] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[12] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[13] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[13] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[14] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[14] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[15] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[15] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[16] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[16] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[17] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[17] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[18] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[18] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[19] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[19] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[1]  ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[1]  ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[20] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[20] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[21] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[21] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[22] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[22] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[23] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[23] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[24] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[24] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[25] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[25] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[26] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[26] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[27] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[27] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[28] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[28] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[29] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[29] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[2]  ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[2]  ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[30] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[30] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[31] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[31] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[3]  ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[3]  ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[4]  ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[4]  ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[5]  ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[5]  ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[6]  ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[6]  ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[7]  ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[7]  ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[8]  ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[8]  ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[9]  ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[9]  ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\process_2:counter[0]   ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\process_2:counter[0]   ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\process_2:counter[1]   ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\process_2:counter[1]   ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|checkCol[0]             ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|checkCol[0]             ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|checkCol[1]             ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|checkCol[1]             ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|checkCol[2]             ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|checkCol[2]             ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|checkCol[3]             ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|checkCol[3]             ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|checkRow[0]             ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|checkRow[0]             ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|checkRow[1]             ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|checkRow[1]             ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|checkRow[2]             ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|checkRow[2]             ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|checkRow[3]             ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|checkRow[3]             ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|counter[0]              ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|counter[0]              ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|dir[0]                  ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|dir[0]                  ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|dir[1]                  ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|dir[1]                  ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|dir[2]                  ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|dir[2]                  ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|fb[0][0][0]             ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|fb[0][0][0]             ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|fb[0][0][1]             ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|fb[0][0][1]             ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|fb[0][0][2]             ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|fb[0][0][2]             ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|fb[0][10][0]            ;
++--------+--------------+----------------+------------------+-------+------------+----------------------------------------+
+
+
++-----------------------------------------------------------------------+
+; Setup Times                                                           ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; kclock    ; clk        ; 3.484 ; 3.484 ; Rise       ; clk             ;
+; kdata     ; clk        ; 4.104 ; 4.104 ; Rise       ; clk             ;
+; rst       ; clk        ; 7.768 ; 7.768 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Hold Times                                                              ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; kclock    ; clk        ; -3.236 ; -3.236 ; Rise       ; clk             ;
+; kdata     ; clk        ; -3.478 ; -3.478 ; Rise       ; clk             ;
+; rst       ; clk        ; 0.988  ; 0.988  ; Rise       ; clk             ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; b[*]      ; clk        ; 7.193 ; 7.193 ; Rise       ; clk             ;
+;  b[0]     ; clk        ; 7.193 ; 7.193 ; Rise       ; clk             ;
+;  b[1]     ; clk        ; 7.136 ; 7.136 ; Rise       ; clk             ;
+;  b[2]     ; clk        ; 6.784 ; 6.784 ; Rise       ; clk             ;
+;  b[3]     ; clk        ; 6.775 ; 6.775 ; Rise       ; clk             ;
+; g[*]      ; clk        ; 7.149 ; 7.149 ; Rise       ; clk             ;
+;  g[0]     ; clk        ; 7.136 ; 7.136 ; Rise       ; clk             ;
+;  g[1]     ; clk        ; 7.136 ; 7.136 ; Rise       ; clk             ;
+;  g[2]     ; clk        ; 7.149 ; 7.149 ; Rise       ; clk             ;
+;  g[3]     ; clk        ; 7.139 ; 7.139 ; Rise       ; clk             ;
+; hex0_0    ; clk        ; 6.770 ; 6.770 ; Rise       ; clk             ;
+; hex0_1    ; clk        ; 6.894 ; 6.894 ; Rise       ; clk             ;
+; hex0_2    ; clk        ; 6.532 ; 6.532 ; Rise       ; clk             ;
+; hex0_3    ; clk        ; 6.891 ; 6.891 ; Rise       ; clk             ;
+; hex0_4    ; clk        ; 6.529 ; 6.529 ; Rise       ; clk             ;
+; hex0_5    ; clk        ; 6.549 ; 6.549 ; Rise       ; clk             ;
+; hex0_6    ; clk        ; 6.549 ; 6.549 ; Rise       ; clk             ;
+; hex1_0    ; clk        ; 7.162 ; 7.162 ; Rise       ; clk             ;
+; hex1_1    ; clk        ; 6.793 ; 6.793 ; Rise       ; clk             ;
+; hex1_2    ; clk        ; 6.796 ; 6.796 ; Rise       ; clk             ;
+; hex1_3    ; clk        ; 6.831 ; 6.831 ; Rise       ; clk             ;
+; hex1_4    ; clk        ; 6.826 ; 6.826 ; Rise       ; clk             ;
+; hex1_5    ; clk        ; 7.134 ; 7.134 ; Rise       ; clk             ;
+; hex1_6    ; clk        ; 6.823 ; 6.823 ; Rise       ; clk             ;
+; hsync     ; clk        ; 7.002 ; 7.002 ; Rise       ; clk             ;
+; r[*]      ; clk        ; 7.154 ; 7.154 ; Rise       ; clk             ;
+;  r[0]     ; clk        ; 7.098 ; 7.098 ; Rise       ; clk             ;
+;  r[1]     ; clk        ; 7.115 ; 7.115 ; Rise       ; clk             ;
+;  r[2]     ; clk        ; 7.154 ; 7.154 ; Rise       ; clk             ;
+;  r[3]     ; clk        ; 7.133 ; 7.133 ; Rise       ; clk             ;
+; vsync     ; clk        ; 7.046 ; 7.046 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; b[*]      ; clk        ; 6.775 ; 6.775 ; Rise       ; clk             ;
+;  b[0]     ; clk        ; 7.193 ; 7.193 ; Rise       ; clk             ;
+;  b[1]     ; clk        ; 7.136 ; 7.136 ; Rise       ; clk             ;
+;  b[2]     ; clk        ; 6.784 ; 6.784 ; Rise       ; clk             ;
+;  b[3]     ; clk        ; 6.775 ; 6.775 ; Rise       ; clk             ;
+; g[*]      ; clk        ; 7.136 ; 7.136 ; Rise       ; clk             ;
+;  g[0]     ; clk        ; 7.136 ; 7.136 ; Rise       ; clk             ;
+;  g[1]     ; clk        ; 7.136 ; 7.136 ; Rise       ; clk             ;
+;  g[2]     ; clk        ; 7.149 ; 7.149 ; Rise       ; clk             ;
+;  g[3]     ; clk        ; 7.139 ; 7.139 ; Rise       ; clk             ;
+; hex0_0    ; clk        ; 6.770 ; 6.770 ; Rise       ; clk             ;
+; hex0_1    ; clk        ; 6.894 ; 6.894 ; Rise       ; clk             ;
+; hex0_2    ; clk        ; 6.532 ; 6.532 ; Rise       ; clk             ;
+; hex0_3    ; clk        ; 6.891 ; 6.891 ; Rise       ; clk             ;
+; hex0_4    ; clk        ; 6.529 ; 6.529 ; Rise       ; clk             ;
+; hex0_5    ; clk        ; 6.549 ; 6.549 ; Rise       ; clk             ;
+; hex0_6    ; clk        ; 6.549 ; 6.549 ; Rise       ; clk             ;
+; hex1_0    ; clk        ; 7.162 ; 7.162 ; Rise       ; clk             ;
+; hex1_1    ; clk        ; 6.793 ; 6.793 ; Rise       ; clk             ;
+; hex1_2    ; clk        ; 6.796 ; 6.796 ; Rise       ; clk             ;
+; hex1_3    ; clk        ; 6.831 ; 6.831 ; Rise       ; clk             ;
+; hex1_4    ; clk        ; 6.826 ; 6.826 ; Rise       ; clk             ;
+; hex1_5    ; clk        ; 7.134 ; 7.134 ; Rise       ; clk             ;
+; hex1_6    ; clk        ; 6.823 ; 6.823 ; Rise       ; clk             ;
+; hsync     ; clk        ; 7.002 ; 7.002 ; Rise       ; clk             ;
+; r[*]      ; clk        ; 7.098 ; 7.098 ; Rise       ; clk             ;
+;  r[0]     ; clk        ; 7.098 ; 7.098 ; Rise       ; clk             ;
+;  r[1]     ; clk        ; 7.115 ; 7.115 ; Rise       ; clk             ;
+;  r[2]     ; clk        ; 7.154 ; 7.154 ; Rise       ; clk             ;
+;  r[3]     ; clk        ; 7.133 ; 7.133 ; Rise       ; clk             ;
+; vsync     ; clk        ; 7.046 ; 7.046 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++--------------------------------+
+; Fast Model Setup Summary       ;
++-------+--------+---------------+
+; Clock ; Slack  ; End Point TNS ;
++-------+--------+---------------+
+; clk   ; -8.410 ; -4719.416     ;
++-------+--------+---------------+
+
+
++-------------------------------+
+; Fast Model Hold Summary       ;
++-------+-------+---------------+
+; Clock ; Slack ; End Point TNS ;
++-------+-------+---------------+
+; clk   ; 0.215 ; 0.000         ;
++-------+-------+---------------+
+
+
+-------------------------------
+; Fast Model Recovery Summary ;
+-------------------------------
+No paths to report.
+
+
+------------------------------
+; Fast Model Removal Summary ;
+------------------------------
+No paths to report.
+
+
++----------------------------------------+
+; Fast Model Minimum Pulse Width Summary ;
++-------+--------+-----------------------+
+; Clock ; Slack  ; End Point TNS         ;
++-------+--------+-----------------------+
+; clk   ; -1.380 ; -881.380              ;
++-------+--------+-----------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Setup: 'clk'                                                                                                                    ;
++--------+-------------------------------+-----------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                     ; To Node                     ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------------+-----------------------------+--------------+-------------+--------------+------------+------------+
+; -8.410 ; frameBuffer:fb|checkCol[2]    ; frameBuffer:fb|three[1]     ; clk          ; clk         ; 1.000        ; 0.001      ; 9.443      ;
+; -8.370 ; frameBuffer:fb|fb[11][0][1]   ; frameBuffer:fb|three[1]     ; clk          ; clk         ; 1.000        ; 0.002      ; 9.404      ;
+; -8.363 ; frameBuffer:fb|fb[11][3][1]   ; frameBuffer:fb|three[1]     ; clk          ; clk         ; 1.000        ; -0.003     ; 9.392      ;
+; -8.351 ; frameBuffer:fb|dir[1]         ; frameBuffer:fb|three[1]     ; clk          ; clk         ; 1.000        ; 0.001      ; 9.384      ;
+; -8.321 ; frameBuffer:fb|checkCol[3]    ; frameBuffer:fb|three[1]     ; clk          ; clk         ; 1.000        ; 0.001      ; 9.354      ;
+; -8.308 ; frameBuffer:fb|checkCol[1]    ; frameBuffer:fb|three[1]     ; clk          ; clk         ; 1.000        ; 0.001      ; 9.341      ;
+; -8.285 ; frameBuffer:fb|fb[11][1][1]   ; frameBuffer:fb|three[1]     ; clk          ; clk         ; 1.000        ; 0.002      ; 9.319      ;
+; -8.242 ; frameBuffer:fb|fb[11][6][1]   ; frameBuffer:fb|three[1]     ; clk          ; clk         ; 1.000        ; -0.011     ; 9.263      ;
+; -8.212 ; frameBuffer:fb|fb[11][2][1]   ; frameBuffer:fb|three[1]     ; clk          ; clk         ; 1.000        ; 0.001      ; 9.245      ;
+; -8.209 ; frameBuffer:fb|fb[11][8][1]   ; frameBuffer:fb|three[1]     ; clk          ; clk         ; 1.000        ; 0.007      ; 9.248      ;
+; -8.203 ; frameBuffer:fb|checkCol[0]    ; frameBuffer:fb|three[1]     ; clk          ; clk         ; 1.000        ; 0.001      ; 9.236      ;
+; -8.191 ; frameBuffer:fb|fb[11][14][1]  ; frameBuffer:fb|three[1]     ; clk          ; clk         ; 1.000        ; 0.008      ; 9.231      ;
+; -8.176 ; frameBuffer:fb|fb[11][9][1]   ; frameBuffer:fb|three[1]     ; clk          ; clk         ; 1.000        ; -0.004     ; 9.204      ;
+; -8.156 ; frameBuffer:fb|fb[11][15][1]  ; frameBuffer:fb|three[1]     ; clk          ; clk         ; 1.000        ; -0.003     ; 9.185      ;
+; -8.144 ; frameBuffer:fb|fb[11][7][1]   ; frameBuffer:fb|three[1]     ; clk          ; clk         ; 1.000        ; -0.003     ; 9.173      ;
+; -8.137 ; frameBuffer:fb|fb[11][4][1]   ; frameBuffer:fb|three[1]     ; clk          ; clk         ; 1.000        ; -0.008     ; 9.161      ;
+; -8.070 ; frameBuffer:fb|fb[11][5][1]   ; frameBuffer:fb|three[1]     ; clk          ; clk         ; 1.000        ; -0.004     ; 9.098      ;
+; -8.035 ; frameBuffer:fb|fb[11][11][1]  ; frameBuffer:fb|three[1]     ; clk          ; clk         ; 1.000        ; -0.010     ; 9.057      ;
+; -8.019 ; frameBuffer:fb|fb[11][10][1]  ; frameBuffer:fb|three[1]     ; clk          ; clk         ; 1.000        ; 0.003      ; 9.054      ;
+; -7.954 ; vgaController:vga|hCounter[3] ; vgaController:vga|g[0]      ; clk          ; clk         ; 1.000        ; 0.007      ; 8.993      ;
+; -7.944 ; swap:sw|swap_col2[0]          ; frameBuffer:fb|fb[3][4][0]  ; clk          ; clk         ; 1.000        ; -0.007     ; 8.969      ;
+; -7.944 ; swap:sw|swap_col2[0]          ; frameBuffer:fb|fb[3][4][2]  ; clk          ; clk         ; 1.000        ; -0.007     ; 8.969      ;
+; -7.944 ; swap:sw|swap_col2[0]          ; frameBuffer:fb|fb[3][4][1]  ; clk          ; clk         ; 1.000        ; -0.007     ; 8.969      ;
+; -7.932 ; frameBuffer:fb|checkCol[0]    ; frameBuffer:fb|three[2]     ; clk          ; clk         ; 1.000        ; 0.007      ; 8.971      ;
+; -7.930 ; swap:sw|swap_col2[0]          ; frameBuffer:fb|fb[4][6][0]  ; clk          ; clk         ; 1.000        ; 0.005      ; 8.967      ;
+; -7.930 ; swap:sw|swap_col2[0]          ; frameBuffer:fb|fb[4][6][2]  ; clk          ; clk         ; 1.000        ; 0.005      ; 8.967      ;
+; -7.930 ; swap:sw|swap_col2[0]          ; frameBuffer:fb|fb[4][6][1]  ; clk          ; clk         ; 1.000        ; 0.005      ; 8.967      ;
+; -7.923 ; frameBuffer:fb|checkRow[1]    ; frameBuffer:fb|three[1]     ; clk          ; clk         ; 1.000        ; -0.004     ; 8.951      ;
+; -7.921 ; frameBuffer:fb|fb[11][3][2]   ; frameBuffer:fb|three[2]     ; clk          ; clk         ; 1.000        ; -0.004     ; 8.949      ;
+; -7.918 ; frameBuffer:fb|checkRow[0]    ; frameBuffer:fb|three[1]     ; clk          ; clk         ; 1.000        ; -0.004     ; 8.946      ;
+; -7.915 ; vgaController:vga|hCounter[4] ; vgaController:vga|g[0]      ; clk          ; clk         ; 1.000        ; 0.007      ; 8.954      ;
+; -7.914 ; frameBuffer:fb|fb[10][3][1]   ; frameBuffer:fb|three[1]     ; clk          ; clk         ; 1.000        ; 0.002      ; 8.948      ;
+; -7.896 ; frameBuffer:fb|checkCol[2]    ; frameBuffer:fb|three[2]     ; clk          ; clk         ; 1.000        ; 0.007      ; 8.935      ;
+; -7.885 ; frameBuffer:fb|fb[11][2][2]   ; frameBuffer:fb|three[2]     ; clk          ; clk         ; 1.000        ; -0.001     ; 8.916      ;
+; -7.876 ; vgaController:vga|hCounter[3] ; vgaController:vga|b[2]      ; clk          ; clk         ; 1.000        ; 0.007      ; 8.915      ;
+; -7.876 ; vgaController:vga|hCounter[3] ; vgaController:vga|b[3]      ; clk          ; clk         ; 1.000        ; 0.007      ; 8.915      ;
+; -7.867 ; frameBuffer:fb|fb[10][2][1]   ; frameBuffer:fb|three[1]     ; clk          ; clk         ; 1.000        ; 0.002      ; 8.901      ;
+; -7.860 ; swap:sw|swap_col2[0]          ; frameBuffer:fb|fb[1][10][1] ; clk          ; clk         ; 1.000        ; -0.007     ; 8.885      ;
+; -7.860 ; swap:sw|swap_col2[0]          ; frameBuffer:fb|fb[1][10][2] ; clk          ; clk         ; 1.000        ; -0.007     ; 8.885      ;
+; -7.856 ; swap:sw|swap_col2[0]          ; frameBuffer:fb|fb[1][5][0]  ; clk          ; clk         ; 1.000        ; -0.006     ; 8.882      ;
+; -7.856 ; swap:sw|swap_col2[0]          ; frameBuffer:fb|fb[1][5][2]  ; clk          ; clk         ; 1.000        ; -0.006     ; 8.882      ;
+; -7.856 ; swap:sw|swap_col2[0]          ; frameBuffer:fb|fb[1][5][1]  ; clk          ; clk         ; 1.000        ; -0.006     ; 8.882      ;
+; -7.856 ; frameBuffer:fb|fb[11][12][1]  ; frameBuffer:fb|three[1]     ; clk          ; clk         ; 1.000        ; -0.002     ; 8.886      ;
+; -7.853 ; swap:sw|swap_col2[0]          ; frameBuffer:fb|fb[3][7][0]  ; clk          ; clk         ; 1.000        ; -0.007     ; 8.878      ;
+; -7.853 ; swap:sw|swap_col2[0]          ; frameBuffer:fb|fb[3][7][2]  ; clk          ; clk         ; 1.000        ; -0.007     ; 8.878      ;
+; -7.853 ; swap:sw|swap_col2[0]          ; frameBuffer:fb|fb[3][7][1]  ; clk          ; clk         ; 1.000        ; -0.007     ; 8.878      ;
+; -7.845 ; swap:sw|swap_col2[0]          ; frameBuffer:fb|fb[1][10][0] ; clk          ; clk         ; 1.000        ; -0.002     ; 8.875      ;
+; -7.840 ; swap:sw|swap_col2[0]          ; frameBuffer:fb|fb[1][4][0]  ; clk          ; clk         ; 1.000        ; 0.003      ; 8.875      ;
+; -7.840 ; swap:sw|swap_col2[0]          ; frameBuffer:fb|fb[1][4][2]  ; clk          ; clk         ; 1.000        ; 0.003      ; 8.875      ;
+; -7.840 ; swap:sw|swap_col2[0]          ; frameBuffer:fb|fb[1][4][1]  ; clk          ; clk         ; 1.000        ; 0.003      ; 8.875      ;
+; -7.837 ; frameBuffer:fb|dir[1]         ; frameBuffer:fb|three[2]     ; clk          ; clk         ; 1.000        ; 0.007      ; 8.876      ;
+; -7.837 ; vgaController:vga|hCounter[4] ; vgaController:vga|b[2]      ; clk          ; clk         ; 1.000        ; 0.007      ; 8.876      ;
+; -7.837 ; vgaController:vga|hCounter[4] ; vgaController:vga|b[3]      ; clk          ; clk         ; 1.000        ; 0.007      ; 8.876      ;
+; -7.834 ; swap:sw|swap_col2[1]          ; frameBuffer:fb|fb[3][4][0]  ; clk          ; clk         ; 1.000        ; -0.014     ; 8.852      ;
+; -7.834 ; swap:sw|swap_col2[1]          ; frameBuffer:fb|fb[3][4][2]  ; clk          ; clk         ; 1.000        ; -0.014     ; 8.852      ;
+; -7.834 ; swap:sw|swap_col2[1]          ; frameBuffer:fb|fb[3][4][1]  ; clk          ; clk         ; 1.000        ; -0.014     ; 8.852      ;
+; -7.827 ; swap:sw|swap_col2[0]          ; frameBuffer:fb|fb[1][8][1]  ; clk          ; clk         ; 1.000        ; 0.004      ; 8.863      ;
+; -7.827 ; swap:sw|swap_col2[0]          ; frameBuffer:fb|fb[1][8][2]  ; clk          ; clk         ; 1.000        ; 0.004      ; 8.863      ;
+; -7.825 ; vgaController:vga|hCounter[7] ; vgaController:vga|g[0]      ; clk          ; clk         ; 1.000        ; 0.007      ; 8.864      ;
+; -7.823 ; frameBuffer:fb|fb[10][1][1]   ; frameBuffer:fb|three[1]     ; clk          ; clk         ; 1.000        ; -0.011     ; 8.844      ;
+; -7.820 ; swap:sw|swap_col2[1]          ; frameBuffer:fb|fb[4][6][0]  ; clk          ; clk         ; 1.000        ; -0.002     ; 8.850      ;
+; -7.820 ; swap:sw|swap_col2[1]          ; frameBuffer:fb|fb[4][6][2]  ; clk          ; clk         ; 1.000        ; -0.002     ; 8.850      ;
+; -7.820 ; swap:sw|swap_col2[1]          ; frameBuffer:fb|fb[4][6][1]  ; clk          ; clk         ; 1.000        ; -0.002     ; 8.850      ;
+; -7.811 ; swap:sw|swap_col2[0]          ; frameBuffer:fb|fb[1][8][0]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.843      ;
+; -7.810 ; vgaController:vga|hCounter[5] ; vgaController:vga|g[0]      ; clk          ; clk         ; 1.000        ; 0.008      ; 8.850      ;
+; -7.801 ; swap:sw|swap_col2[0]          ; frameBuffer:fb|fb[10][6][1] ; clk          ; clk         ; 1.000        ; -0.012     ; 8.821      ;
+; -7.796 ; swap:sw|swap_row1[0]          ; frameBuffer:fb|fb[3][4][0]  ; clk          ; clk         ; 1.000        ; -0.014     ; 8.814      ;
+; -7.796 ; swap:sw|swap_row1[0]          ; frameBuffer:fb|fb[3][4][2]  ; clk          ; clk         ; 1.000        ; -0.014     ; 8.814      ;
+; -7.796 ; swap:sw|swap_row1[0]          ; frameBuffer:fb|fb[3][4][1]  ; clk          ; clk         ; 1.000        ; -0.014     ; 8.814      ;
+; -7.794 ; frameBuffer:fb|checkCol[1]    ; frameBuffer:fb|three[2]     ; clk          ; clk         ; 1.000        ; 0.007      ; 8.833      ;
+; -7.793 ; swap:sw|swap_row1[0]          ; frameBuffer:fb|fb[1][10][1] ; clk          ; clk         ; 1.000        ; -0.014     ; 8.811      ;
+; -7.793 ; swap:sw|swap_row1[0]          ; frameBuffer:fb|fb[1][10][2] ; clk          ; clk         ; 1.000        ; -0.014     ; 8.811      ;
+; -7.789 ; vgaController:vga|hCounter[3] ; vgaController:vga|g[3]      ; clk          ; clk         ; 1.000        ; 0.007      ; 8.828      ;
+; -7.786 ; vgaController:vga|hCounter[3] ; vgaController:vga|g[1]      ; clk          ; clk         ; 1.000        ; 0.007      ; 8.825      ;
+; -7.782 ; vgaController:vga|hCounter[3] ; vgaController:vga|r[2]      ; clk          ; clk         ; 1.000        ; 0.007      ; 8.821      ;
+; -7.782 ; swap:sw|swap_row1[0]          ; frameBuffer:fb|fb[4][6][0]  ; clk          ; clk         ; 1.000        ; -0.002     ; 8.812      ;
+; -7.782 ; swap:sw|swap_row1[0]          ; frameBuffer:fb|fb[4][6][2]  ; clk          ; clk         ; 1.000        ; -0.002     ; 8.812      ;
+; -7.782 ; swap:sw|swap_row1[0]          ; frameBuffer:fb|fb[4][6][1]  ; clk          ; clk         ; 1.000        ; -0.002     ; 8.812      ;
+; -7.779 ; vgaController:vga|hCounter[3] ; vgaController:vga|r[1]      ; clk          ; clk         ; 1.000        ; 0.007      ; 8.818      ;
+; -7.778 ; swap:sw|swap_row1[0]          ; frameBuffer:fb|fb[1][10][0] ; clk          ; clk         ; 1.000        ; -0.009     ; 8.801      ;
+; -7.776 ; frameBuffer:fb|fb[11][1][2]   ; frameBuffer:fb|three[2]     ; clk          ; clk         ; 1.000        ; -0.001     ; 8.807      ;
+; -7.772 ; frameBuffer:fb|fb[8][11][1]   ; frameBuffer:fb|fb[3][4][0]  ; clk          ; clk         ; 1.000        ; -0.007     ; 8.797      ;
+; -7.772 ; frameBuffer:fb|fb[8][11][1]   ; frameBuffer:fb|fb[3][4][2]  ; clk          ; clk         ; 1.000        ; -0.007     ; 8.797      ;
+; -7.772 ; frameBuffer:fb|fb[8][11][1]   ; frameBuffer:fb|fb[3][4][1]  ; clk          ; clk         ; 1.000        ; -0.007     ; 8.797      ;
+; -7.758 ; frameBuffer:fb|fb[8][11][1]   ; frameBuffer:fb|fb[4][6][0]  ; clk          ; clk         ; 1.000        ; 0.005      ; 8.795      ;
+; -7.758 ; frameBuffer:fb|fb[8][11][1]   ; frameBuffer:fb|fb[4][6][2]  ; clk          ; clk         ; 1.000        ; 0.005      ; 8.795      ;
+; -7.758 ; frameBuffer:fb|fb[8][11][1]   ; frameBuffer:fb|fb[4][6][1]  ; clk          ; clk         ; 1.000        ; 0.005      ; 8.795      ;
+; -7.755 ; frameBuffer:fb|fb[7][0][2]    ; frameBuffer:fb|fb[3][4][0]  ; clk          ; clk         ; 1.000        ; -0.015     ; 8.772      ;
+; -7.755 ; frameBuffer:fb|fb[7][0][2]    ; frameBuffer:fb|fb[3][4][2]  ; clk          ; clk         ; 1.000        ; -0.015     ; 8.772      ;
+; -7.755 ; frameBuffer:fb|fb[7][0][2]    ; frameBuffer:fb|fb[3][4][1]  ; clk          ; clk         ; 1.000        ; -0.015     ; 8.772      ;
+; -7.752 ; frameBuffer:fb|checkCol[3]    ; frameBuffer:fb|three[2]     ; clk          ; clk         ; 1.000        ; 0.007      ; 8.791      ;
+; -7.750 ; swap:sw|swap_col2[1]          ; frameBuffer:fb|fb[1][10][1] ; clk          ; clk         ; 1.000        ; -0.014     ; 8.768      ;
+; -7.750 ; swap:sw|swap_col2[1]          ; frameBuffer:fb|fb[1][10][2] ; clk          ; clk         ; 1.000        ; -0.014     ; 8.768      ;
+; -7.750 ; vgaController:vga|hCounter[4] ; vgaController:vga|g[3]      ; clk          ; clk         ; 1.000        ; 0.007      ; 8.789      ;
+; -7.749 ; frameBuffer:fb|fb[11][5][2]   ; frameBuffer:fb|three[2]     ; clk          ; clk         ; 1.000        ; -0.004     ; 8.777      ;
+; -7.747 ; vgaController:vga|hCounter[7] ; vgaController:vga|b[2]      ; clk          ; clk         ; 1.000        ; 0.007      ; 8.786      ;
+; -7.747 ; vgaController:vga|hCounter[7] ; vgaController:vga|b[3]      ; clk          ; clk         ; 1.000        ; 0.007      ; 8.786      ;
+; -7.747 ; vgaController:vga|hCounter[4] ; vgaController:vga|g[1]      ; clk          ; clk         ; 1.000        ; 0.007      ; 8.786      ;
+; -7.746 ; swap:sw|swap_col2[1]          ; frameBuffer:fb|fb[1][5][0]  ; clk          ; clk         ; 1.000        ; -0.013     ; 8.765      ;
+; -7.746 ; swap:sw|swap_col2[1]          ; frameBuffer:fb|fb[1][5][2]  ; clk          ; clk         ; 1.000        ; -0.013     ; 8.765      ;
++--------+-------------------------------+-----------------------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Hold: 'clk'                                                                                                                                        ;
++-------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                              ; To Node                                ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.215 ; ps2_keyboard:ps2|counter[0]            ; ps2_keyboard:ps2|counter[0]            ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; ps2_keyboard:ps2|counter[1]            ; ps2_keyboard:ps2|counter[1]            ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; ps2_keyboard:ps2|counter[2]            ; ps2_keyboard:ps2|counter[2]            ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; ps2_keyboard:ps2|data[0]               ; ps2_keyboard:ps2|data[0]               ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; ps2_keyboard:ps2|data[10]              ; ps2_keyboard:ps2|data[10]              ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; ps2_keyboard:ps2|data[3]               ; ps2_keyboard:ps2|data[3]               ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; ps2_keyboard:ps2|data[2]               ; ps2_keyboard:ps2|data[2]               ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; ps2_keyboard:ps2|data[8]               ; ps2_keyboard:ps2|data[8]               ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; ps2_keyboard:ps2|data[7]               ; ps2_keyboard:ps2|data[7]               ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; ps2_keyboard:ps2|data[9]               ; ps2_keyboard:ps2|data[9]               ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; ps2_keyboard:ps2|data[6]               ; ps2_keyboard:ps2|data[6]               ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; ps2_keyboard:ps2|data[1]               ; ps2_keyboard:ps2|data[1]               ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; ps2_keyboard:ps2|data[5]               ; ps2_keyboard:ps2|data[5]               ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; ps2_keyboard:ps2|got_new               ; ps2_keyboard:ps2|got_new               ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; ps2_keyboard:ps2|data[4]               ; ps2_keyboard:ps2|data[4]               ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; ps2_keyboard:ps2|lock_up[10]           ; ps2_keyboard:ps2|lock_up[10]           ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; ps2_keyboard:ps2|lock_up[1]            ; ps2_keyboard:ps2|lock_up[1]            ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; ps2_keyboard:ps2|lock_right[1]         ; ps2_keyboard:ps2|lock_right[1]         ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; ps2_keyboard:ps2|lock_left[10]         ; ps2_keyboard:ps2|lock_left[10]         ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; ps2_keyboard:ps2|lock_left[1]          ; ps2_keyboard:ps2|lock_left[1]          ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; ps2_keyboard:ps2|lock_down[1]          ; ps2_keyboard:ps2|lock_down[1]          ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; ps2_keyboard:ps2|lock_sel[1]           ; ps2_keyboard:ps2|lock_sel[1]           ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; swap:sw|counter[0]                     ; swap:sw|counter[0]                     ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; movement:mv|fsm_state.A                ; movement:mv|fsm_state.A                ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; movement:mv|row[0]                     ; movement:mv|row[0]                     ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; movement:mv|row_player[0]              ; movement:mv|row_player[0]              ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; movement:mv|row_player[3]              ; movement:mv|row_player[3]              ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; movement:mv|row_player[1]              ; movement:mv|row_player[1]              ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; movement:mv|col_player[2]              ; movement:mv|col_player[2]              ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; movement:mv|col_player[3]              ; movement:mv|col_player[3]              ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; movement:mv|col_player[1]              ; movement:mv|col_player[1]              ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; movement:mv|col_player[0]              ; movement:mv|col_player[0]              ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; frameBuffer:fb|counter[0]              ; frameBuffer:fb|counter[0]              ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; frameBuffer:fb|\process_2:counter[0]   ; frameBuffer:fb|\process_2:counter[0]   ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; frameBuffer:fb|dir[0]                  ; frameBuffer:fb|dir[0]                  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; frameBuffer:fb|\process_2:counter[1]   ; frameBuffer:fb|\process_2:counter[1]   ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; frameBuffer:fb|checkRow[1]             ; frameBuffer:fb|checkRow[1]             ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; frameBuffer:fb|checkRow[2]             ; frameBuffer:fb|checkRow[2]             ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; frameBuffer:fb|checkRow[3]             ; frameBuffer:fb|checkRow[3]             ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; frameBuffer:fb|one[10]                 ; frameBuffer:fb|one[10]                 ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; frameBuffer:fb|one[9]                  ; frameBuffer:fb|one[9]                  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; frameBuffer:fb|one[8]                  ; frameBuffer:fb|one[8]                  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; frameBuffer:fb|one[3]                  ; frameBuffer:fb|one[3]                  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; frameBuffer:fb|one[6]                  ; frameBuffer:fb|one[6]                  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; frameBuffer:fb|one[5]                  ; frameBuffer:fb|one[5]                  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; frameBuffer:fb|one[4]                  ; frameBuffer:fb|one[4]                  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; frameBuffer:fb|three[8]                ; frameBuffer:fb|three[8]                ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; frameBuffer:fb|one[7]                  ; frameBuffer:fb|one[7]                  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; vgaController:vga|pxClk                ; vgaController:vga|pxClk                ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; vgaController:vga|vCounter[0]          ; vgaController:vga|vCounter[0]          ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; frameBuffer:fb|score10_t[1]            ; frameBuffer:fb|score10_t[1]            ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; frameBuffer:fb|score10_t[2]            ; frameBuffer:fb|score10_t[2]            ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; frameBuffer:fb|score10_t[3]            ; frameBuffer:fb|score10_t[3]            ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; frameBuffer:fb|score10_t[0]            ; frameBuffer:fb|score10_t[0]            ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; frameBuffer:fb|score_t[0]              ; frameBuffer:fb|score_t[0]              ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; frameBuffer:fb|score_t[1]              ; frameBuffer:fb|score_t[1]              ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.236 ; movement:mv|signal_left1               ; movement:mv|signal_left2               ; clk          ; clk         ; 0.000        ; 0.000      ; 0.388      ;
+; 0.236 ; movement:mv|signal_right1              ; movement:mv|signal_right2              ; clk          ; clk         ; 0.000        ; 0.000      ; 0.388      ;
+; 0.239 ; frameBuffer:fb|three[5]                ; frameBuffer:fb|wAddrG[18]              ; clk          ; clk         ; 0.000        ; 0.000      ; 0.391      ;
+; 0.243 ; frameBuffer:fb|\initialize:counter[31] ; frameBuffer:fb|\initialize:counter[31] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.395      ;
+; 0.243 ; frameBuffer:fb|slowdown[31]            ; frameBuffer:fb|slowdown[31]            ; clk          ; clk         ; 0.000        ; 0.000      ; 0.395      ;
+; 0.252 ; swap:sw|signal_b1                      ; swap:sw|signal_b2                      ; clk          ; clk         ; 0.000        ; 0.000      ; 0.404      ;
+; 0.254 ; frameBuffer:fb|checkRow[3]             ; frameBuffer:fb|two[10]                 ; clk          ; clk         ; 0.000        ; 0.000      ; 0.406      ;
+; 0.255 ; frameBuffer:fb|checkRow[3]             ; frameBuffer:fb|checkRow[2]             ; clk          ; clk         ; 0.000        ; 0.000      ; 0.407      ;
+; 0.257 ; frameBuffer:fb|checkRow[2]             ; frameBuffer:fb|two[9]                  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.409      ;
+; 0.260 ; frameBuffer:fb|checkRow[2]             ; frameBuffer:fb|checkRow[3]             ; clk          ; clk         ; 0.000        ; 0.000      ; 0.412      ;
+; 0.261 ; ps2_keyboard:ps2|got_new               ; ps2_keyboard:ps2|internal_reset        ; clk          ; clk         ; 0.000        ; 0.000      ; 0.413      ;
+; 0.264 ; swap:sw|signal_b2                      ; swap:sw|signal_b3                      ; clk          ; clk         ; 0.000        ; 0.000      ; 0.416      ;
+; 0.264 ; movement:mv|fsm_state.A                ; movement:mv|fsm_state.B                ; clk          ; clk         ; 0.000        ; 0.000      ; 0.416      ;
+; 0.265 ; movement:mv|fsm_state.A                ; movement:mv|fsm_state.D                ; clk          ; clk         ; 0.000        ; 0.000      ; 0.417      ;
+; 0.265 ; frameBuffer:fb|dir[2]                  ; frameBuffer:fb|\process_2:counter[0]   ; clk          ; clk         ; 0.000        ; 0.000      ; 0.417      ;
+; 0.265 ; frameBuffer:fb|dir[2]                  ; frameBuffer:fb|\process_2:counter[1]   ; clk          ; clk         ; 0.000        ; 0.000      ; 0.417      ;
+; 0.266 ; frameBuffer:fb|dir[2]                  ; frameBuffer:fb|dir[0]                  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.418      ;
+; 0.268 ; movement:mv|fsm_state.A                ; movement:mv|fsm_state.C                ; clk          ; clk         ; 0.000        ; 0.000      ; 0.420      ;
+; 0.269 ; frameBuffer:fb|score_t[3]              ; score:sc|temp_hex05                    ; clk          ; clk         ; 0.000        ; 0.000      ; 0.421      ;
+; 0.271 ; movement:mv|fsm_state.A                ; movement:mv|fsm_state.E                ; clk          ; clk         ; 0.000        ; 0.000      ; 0.423      ;
+; 0.271 ; frameBuffer:fb|score_t[3]              ; score:sc|temp_hex06                    ; clk          ; clk         ; 0.000        ; 0.000      ; 0.423      ;
+; 0.274 ; frameBuffer:fb|score_t[3]              ; score:sc|temp_hex01                    ; clk          ; clk         ; 0.000        ; 0.000      ; 0.426      ;
+; 0.274 ; frameBuffer:fb|score_t[3]              ; score:sc|temp_hex04                    ; clk          ; clk         ; 0.000        ; 0.000      ; 0.426      ;
+; 0.275 ; frameBuffer:fb|score_t[3]              ; score:sc|temp_hex03                    ; clk          ; clk         ; 0.000        ; 0.000      ; 0.427      ;
+; 0.276 ; frameBuffer:fb|score_t[3]              ; score:sc|temp_hex00                    ; clk          ; clk         ; 0.000        ; 0.000      ; 0.428      ;
+; 0.276 ; frameBuffer:fb|score_t[3]              ; score:sc|temp_hex02                    ; clk          ; clk         ; 0.000        ; 0.000      ; 0.428      ;
+; 0.283 ; frameBuffer:fb|score10_t[2]            ; score:sc|temp_hex16                    ; clk          ; clk         ; 0.000        ; 0.000      ; 0.435      ;
+; 0.290 ; frameBuffer:fb|score10_t[2]            ; score:sc|temp_hex15                    ; clk          ; clk         ; 0.000        ; 0.000      ; 0.442      ;
+; 0.291 ; frameBuffer:fb|score10_t[2]            ; score:sc|temp_hex12                    ; clk          ; clk         ; 0.000        ; 0.000      ; 0.443      ;
+; 0.291 ; frameBuffer:fb|score10_t[2]            ; score:sc|temp_hex13                    ; clk          ; clk         ; 0.000        ; 0.000      ; 0.443      ;
+; 0.292 ; frameBuffer:fb|score10_t[2]            ; score:sc|temp_hex10                    ; clk          ; clk         ; 0.000        ; 0.000      ; 0.444      ;
+; 0.292 ; frameBuffer:fb|score10_t[2]            ; score:sc|temp_hex11                    ; clk          ; clk         ; 0.000        ; 0.000      ; 0.444      ;
+; 0.293 ; movement:mv|col_player[1]              ; movement:mv|col[1]                     ; clk          ; clk         ; 0.000        ; 0.000      ; 0.445      ;
+; 0.293 ; frameBuffer:fb|score10_t[2]            ; score:sc|temp_hex14                    ; clk          ; clk         ; 0.000        ; 0.000      ; 0.445      ;
+; 0.295 ; movement:mv|row[2]                     ; movement:mv|row_player[2]              ; clk          ; clk         ; 0.000        ; 0.000      ; 0.447      ;
+; 0.333 ; frameBuffer:fb|score_t[0]              ; score:sc|temp_hex05                    ; clk          ; clk         ; 0.000        ; 0.000      ; 0.485      ;
+; 0.334 ; movement:mv|signal_up2                 ; movement:mv|signal_up3                 ; clk          ; clk         ; 0.000        ; -0.002     ; 0.484      ;
+; 0.334 ; frameBuffer:fb|score10_t[1]            ; score:sc|temp_hex16                    ; clk          ; clk         ; 0.000        ; 0.000      ; 0.486      ;
+; 0.334 ; frameBuffer:fb|score10_t[1]            ; score:sc|temp_hex15                    ; clk          ; clk         ; 0.000        ; 0.000      ; 0.486      ;
+; 0.336 ; frameBuffer:fb|score10_t[1]            ; score:sc|temp_hex12                    ; clk          ; clk         ; 0.000        ; 0.000      ; 0.488      ;
+; 0.336 ; frameBuffer:fb|score10_t[1]            ; score:sc|temp_hex13                    ; clk          ; clk         ; 0.000        ; 0.000      ; 0.488      ;
+; 0.337 ; frameBuffer:fb|score10_t[1]            ; score:sc|temp_hex10                    ; clk          ; clk         ; 0.000        ; 0.000      ; 0.489      ;
+; 0.337 ; frameBuffer:fb|score10_t[1]            ; score:sc|temp_hex11                    ; clk          ; clk         ; 0.000        ; 0.000      ; 0.489      ;
+; 0.339 ; movement:mv|signal_right2              ; movement:mv|signal_right3              ; clk          ; clk         ; 0.000        ; 0.000      ; 0.491      ;
++-------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Minimum Pulse Width: 'clk'                                                                                   ;
++--------+--------------+----------------+------------------+-------+------------+----------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target                                 ;
++--------+--------------+----------------+------------------+-------+------------+----------------------------------------+
+; -1.380 ; 1.000        ; 2.380          ; Port Rate        ; clk   ; Rise       ; clk                                    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[0]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[0]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[10] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[10] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[11] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[11] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[12] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[12] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[13] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[13] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[14] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[14] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[15] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[15] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[16] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[16] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[17] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[17] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[18] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[18] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[19] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[19] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[1]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[1]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[20] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[20] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[21] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[21] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[22] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[22] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[23] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[23] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[24] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[24] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[25] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[25] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[26] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[26] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[27] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[27] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[28] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[28] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[29] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[29] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[2]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[2]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[30] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[30] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[31] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[31] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[3]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[3]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[4]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[4]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[5]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[5]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[6]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[6]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[7]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[7]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[8]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[8]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[9]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\initialize:counter[9]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\process_2:counter[0]   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\process_2:counter[0]   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|\process_2:counter[1]   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|\process_2:counter[1]   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|checkCol[0]             ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|checkCol[0]             ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|checkCol[1]             ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|checkCol[1]             ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|checkCol[2]             ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|checkCol[2]             ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|checkCol[3]             ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|checkCol[3]             ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|checkRow[0]             ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|checkRow[0]             ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|checkRow[1]             ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|checkRow[1]             ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|checkRow[2]             ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|checkRow[2]             ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|checkRow[3]             ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|checkRow[3]             ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|counter[0]              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|counter[0]              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|dir[0]                  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|dir[0]                  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|dir[1]                  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|dir[1]                  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|dir[2]                  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|dir[2]                  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|fb[0][0][0]             ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|fb[0][0][0]             ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|fb[0][0][1]             ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|fb[0][0][1]             ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|fb[0][0][2]             ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; frameBuffer:fb|fb[0][0][2]             ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; frameBuffer:fb|fb[0][10][0]            ;
++--------+--------------+----------------+------------------+-------+------------+----------------------------------------+
+
+
++-----------------------------------------------------------------------+
+; Setup Times                                                           ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; kclock    ; clk        ; 1.619 ; 1.619 ; Rise       ; clk             ;
+; kdata     ; clk        ; 1.827 ; 1.827 ; Rise       ; clk             ;
+; rst       ; clk        ; 2.690 ; 2.690 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Hold Times                                                              ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; kclock    ; clk        ; -1.499 ; -1.499 ; Rise       ; clk             ;
+; kdata     ; clk        ; -1.562 ; -1.562 ; Rise       ; clk             ;
+; rst       ; clk        ; 0.938  ; 0.938  ; Rise       ; clk             ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; b[*]      ; clk        ; 3.858 ; 3.858 ; Rise       ; clk             ;
+;  b[0]     ; clk        ; 3.858 ; 3.858 ; Rise       ; clk             ;
+;  b[1]     ; clk        ; 3.816 ; 3.816 ; Rise       ; clk             ;
+;  b[2]     ; clk        ; 3.679 ; 3.679 ; Rise       ; clk             ;
+;  b[3]     ; clk        ; 3.669 ; 3.669 ; Rise       ; clk             ;
+; g[*]      ; clk        ; 3.818 ; 3.818 ; Rise       ; clk             ;
+;  g[0]     ; clk        ; 3.818 ; 3.818 ; Rise       ; clk             ;
+;  g[1]     ; clk        ; 3.800 ; 3.800 ; Rise       ; clk             ;
+;  g[2]     ; clk        ; 3.813 ; 3.813 ; Rise       ; clk             ;
+;  g[3]     ; clk        ; 3.802 ; 3.802 ; Rise       ; clk             ;
+; hex0_0    ; clk        ; 3.669 ; 3.669 ; Rise       ; clk             ;
+; hex0_1    ; clk        ; 3.725 ; 3.725 ; Rise       ; clk             ;
+; hex0_2    ; clk        ; 3.576 ; 3.576 ; Rise       ; clk             ;
+; hex0_3    ; clk        ; 3.722 ; 3.722 ; Rise       ; clk             ;
+; hex0_4    ; clk        ; 3.575 ; 3.575 ; Rise       ; clk             ;
+; hex0_5    ; clk        ; 3.595 ; 3.595 ; Rise       ; clk             ;
+; hex0_6    ; clk        ; 3.595 ; 3.595 ; Rise       ; clk             ;
+; hex1_0    ; clk        ; 3.825 ; 3.825 ; Rise       ; clk             ;
+; hex1_1    ; clk        ; 3.671 ; 3.671 ; Rise       ; clk             ;
+; hex1_2    ; clk        ; 3.672 ; 3.672 ; Rise       ; clk             ;
+; hex1_3    ; clk        ; 3.703 ; 3.703 ; Rise       ; clk             ;
+; hex1_4    ; clk        ; 3.703 ; 3.703 ; Rise       ; clk             ;
+; hex1_5    ; clk        ; 3.796 ; 3.796 ; Rise       ; clk             ;
+; hex1_6    ; clk        ; 3.701 ; 3.701 ; Rise       ; clk             ;
+; hsync     ; clk        ; 3.750 ; 3.750 ; Rise       ; clk             ;
+; r[*]      ; clk        ; 3.816 ; 3.816 ; Rise       ; clk             ;
+;  r[0]     ; clk        ; 3.777 ; 3.777 ; Rise       ; clk             ;
+;  r[1]     ; clk        ; 3.795 ; 3.795 ; Rise       ; clk             ;
+;  r[2]     ; clk        ; 3.816 ; 3.816 ; Rise       ; clk             ;
+;  r[3]     ; clk        ; 3.799 ; 3.799 ; Rise       ; clk             ;
+; vsync     ; clk        ; 3.768 ; 3.768 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; b[*]      ; clk        ; 3.669 ; 3.669 ; Rise       ; clk             ;
+;  b[0]     ; clk        ; 3.858 ; 3.858 ; Rise       ; clk             ;
+;  b[1]     ; clk        ; 3.816 ; 3.816 ; Rise       ; clk             ;
+;  b[2]     ; clk        ; 3.679 ; 3.679 ; Rise       ; clk             ;
+;  b[3]     ; clk        ; 3.669 ; 3.669 ; Rise       ; clk             ;
+; g[*]      ; clk        ; 3.800 ; 3.800 ; Rise       ; clk             ;
+;  g[0]     ; clk        ; 3.818 ; 3.818 ; Rise       ; clk             ;
+;  g[1]     ; clk        ; 3.800 ; 3.800 ; Rise       ; clk             ;
+;  g[2]     ; clk        ; 3.813 ; 3.813 ; Rise       ; clk             ;
+;  g[3]     ; clk        ; 3.802 ; 3.802 ; Rise       ; clk             ;
+; hex0_0    ; clk        ; 3.669 ; 3.669 ; Rise       ; clk             ;
+; hex0_1    ; clk        ; 3.725 ; 3.725 ; Rise       ; clk             ;
+; hex0_2    ; clk        ; 3.576 ; 3.576 ; Rise       ; clk             ;
+; hex0_3    ; clk        ; 3.722 ; 3.722 ; Rise       ; clk             ;
+; hex0_4    ; clk        ; 3.575 ; 3.575 ; Rise       ; clk             ;
+; hex0_5    ; clk        ; 3.595 ; 3.595 ; Rise       ; clk             ;
+; hex0_6    ; clk        ; 3.595 ; 3.595 ; Rise       ; clk             ;
+; hex1_0    ; clk        ; 3.825 ; 3.825 ; Rise       ; clk             ;
+; hex1_1    ; clk        ; 3.671 ; 3.671 ; Rise       ; clk             ;
+; hex1_2    ; clk        ; 3.672 ; 3.672 ; Rise       ; clk             ;
+; hex1_3    ; clk        ; 3.703 ; 3.703 ; Rise       ; clk             ;
+; hex1_4    ; clk        ; 3.703 ; 3.703 ; Rise       ; clk             ;
+; hex1_5    ; clk        ; 3.796 ; 3.796 ; Rise       ; clk             ;
+; hex1_6    ; clk        ; 3.701 ; 3.701 ; Rise       ; clk             ;
+; hsync     ; clk        ; 3.750 ; 3.750 ; Rise       ; clk             ;
+; r[*]      ; clk        ; 3.777 ; 3.777 ; Rise       ; clk             ;
+;  r[0]     ; clk        ; 3.777 ; 3.777 ; Rise       ; clk             ;
+;  r[1]     ; clk        ; 3.795 ; 3.795 ; Rise       ; clk             ;
+;  r[2]     ; clk        ; 3.816 ; 3.816 ; Rise       ; clk             ;
+;  r[3]     ; clk        ; 3.799 ; 3.799 ; Rise       ; clk             ;
+; vsync     ; clk        ; 3.768 ; 3.768 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++----------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                              ;
++------------------+------------+-------+----------+---------+---------------------+
+; Clock            ; Setup      ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+------------+-------+----------+---------+---------------------+
+; Worst-case Slack ; -25.580    ; 0.215 ; N/A      ; N/A     ; -1.631              ;
+;  clk             ; -25.580    ; 0.215 ; N/A      ; N/A     ; -1.631              ;
+; Design-wide TNS  ; -13554.896 ; 0.0   ; 0.0      ; 0.0     ; -1076.991           ;
+;  clk             ; -13554.896 ; 0.000 ; N/A      ; N/A     ; -1076.991           ;
++------------------+------------+-------+----------+---------+---------------------+
+
+
++-----------------------------------------------------------------------+
+; Setup Times                                                           ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; kclock    ; clk        ; 3.484 ; 3.484 ; Rise       ; clk             ;
+; kdata     ; clk        ; 4.104 ; 4.104 ; Rise       ; clk             ;
+; rst       ; clk        ; 7.768 ; 7.768 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Hold Times                                                              ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; kclock    ; clk        ; -1.499 ; -1.499 ; Rise       ; clk             ;
+; kdata     ; clk        ; -1.562 ; -1.562 ; Rise       ; clk             ;
+; rst       ; clk        ; 0.988  ; 0.988  ; Rise       ; clk             ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; b[*]      ; clk        ; 7.193 ; 7.193 ; Rise       ; clk             ;
+;  b[0]     ; clk        ; 7.193 ; 7.193 ; Rise       ; clk             ;
+;  b[1]     ; clk        ; 7.136 ; 7.136 ; Rise       ; clk             ;
+;  b[2]     ; clk        ; 6.784 ; 6.784 ; Rise       ; clk             ;
+;  b[3]     ; clk        ; 6.775 ; 6.775 ; Rise       ; clk             ;
+; g[*]      ; clk        ; 7.149 ; 7.149 ; Rise       ; clk             ;
+;  g[0]     ; clk        ; 7.136 ; 7.136 ; Rise       ; clk             ;
+;  g[1]     ; clk        ; 7.136 ; 7.136 ; Rise       ; clk             ;
+;  g[2]     ; clk        ; 7.149 ; 7.149 ; Rise       ; clk             ;
+;  g[3]     ; clk        ; 7.139 ; 7.139 ; Rise       ; clk             ;
+; hex0_0    ; clk        ; 6.770 ; 6.770 ; Rise       ; clk             ;
+; hex0_1    ; clk        ; 6.894 ; 6.894 ; Rise       ; clk             ;
+; hex0_2    ; clk        ; 6.532 ; 6.532 ; Rise       ; clk             ;
+; hex0_3    ; clk        ; 6.891 ; 6.891 ; Rise       ; clk             ;
+; hex0_4    ; clk        ; 6.529 ; 6.529 ; Rise       ; clk             ;
+; hex0_5    ; clk        ; 6.549 ; 6.549 ; Rise       ; clk             ;
+; hex0_6    ; clk        ; 6.549 ; 6.549 ; Rise       ; clk             ;
+; hex1_0    ; clk        ; 7.162 ; 7.162 ; Rise       ; clk             ;
+; hex1_1    ; clk        ; 6.793 ; 6.793 ; Rise       ; clk             ;
+; hex1_2    ; clk        ; 6.796 ; 6.796 ; Rise       ; clk             ;
+; hex1_3    ; clk        ; 6.831 ; 6.831 ; Rise       ; clk             ;
+; hex1_4    ; clk        ; 6.826 ; 6.826 ; Rise       ; clk             ;
+; hex1_5    ; clk        ; 7.134 ; 7.134 ; Rise       ; clk             ;
+; hex1_6    ; clk        ; 6.823 ; 6.823 ; Rise       ; clk             ;
+; hsync     ; clk        ; 7.002 ; 7.002 ; Rise       ; clk             ;
+; r[*]      ; clk        ; 7.154 ; 7.154 ; Rise       ; clk             ;
+;  r[0]     ; clk        ; 7.098 ; 7.098 ; Rise       ; clk             ;
+;  r[1]     ; clk        ; 7.115 ; 7.115 ; Rise       ; clk             ;
+;  r[2]     ; clk        ; 7.154 ; 7.154 ; Rise       ; clk             ;
+;  r[3]     ; clk        ; 7.133 ; 7.133 ; Rise       ; clk             ;
+; vsync     ; clk        ; 7.046 ; 7.046 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; b[*]      ; clk        ; 3.669 ; 3.669 ; Rise       ; clk             ;
+;  b[0]     ; clk        ; 3.858 ; 3.858 ; Rise       ; clk             ;
+;  b[1]     ; clk        ; 3.816 ; 3.816 ; Rise       ; clk             ;
+;  b[2]     ; clk        ; 3.679 ; 3.679 ; Rise       ; clk             ;
+;  b[3]     ; clk        ; 3.669 ; 3.669 ; Rise       ; clk             ;
+; g[*]      ; clk        ; 3.800 ; 3.800 ; Rise       ; clk             ;
+;  g[0]     ; clk        ; 3.818 ; 3.818 ; Rise       ; clk             ;
+;  g[1]     ; clk        ; 3.800 ; 3.800 ; Rise       ; clk             ;
+;  g[2]     ; clk        ; 3.813 ; 3.813 ; Rise       ; clk             ;
+;  g[3]     ; clk        ; 3.802 ; 3.802 ; Rise       ; clk             ;
+; hex0_0    ; clk        ; 3.669 ; 3.669 ; Rise       ; clk             ;
+; hex0_1    ; clk        ; 3.725 ; 3.725 ; Rise       ; clk             ;
+; hex0_2    ; clk        ; 3.576 ; 3.576 ; Rise       ; clk             ;
+; hex0_3    ; clk        ; 3.722 ; 3.722 ; Rise       ; clk             ;
+; hex0_4    ; clk        ; 3.575 ; 3.575 ; Rise       ; clk             ;
+; hex0_5    ; clk        ; 3.595 ; 3.595 ; Rise       ; clk             ;
+; hex0_6    ; clk        ; 3.595 ; 3.595 ; Rise       ; clk             ;
+; hex1_0    ; clk        ; 3.825 ; 3.825 ; Rise       ; clk             ;
+; hex1_1    ; clk        ; 3.671 ; 3.671 ; Rise       ; clk             ;
+; hex1_2    ; clk        ; 3.672 ; 3.672 ; Rise       ; clk             ;
+; hex1_3    ; clk        ; 3.703 ; 3.703 ; Rise       ; clk             ;
+; hex1_4    ; clk        ; 3.703 ; 3.703 ; Rise       ; clk             ;
+; hex1_5    ; clk        ; 3.796 ; 3.796 ; Rise       ; clk             ;
+; hex1_6    ; clk        ; 3.701 ; 3.701 ; Rise       ; clk             ;
+; hsync     ; clk        ; 3.750 ; 3.750 ; Rise       ; clk             ;
+; r[*]      ; clk        ; 3.777 ; 3.777 ; Rise       ; clk             ;
+;  r[0]     ; clk        ; 3.777 ; 3.777 ; Rise       ; clk             ;
+;  r[1]     ; clk        ; 3.795 ; 3.795 ; Rise       ; clk             ;
+;  r[2]     ; clk        ; 3.816 ; 3.816 ; Rise       ; clk             ;
+;  r[3]     ; clk        ; 3.799 ; 3.799 ; Rise       ; clk             ;
+; vsync     ; clk        ; 3.768 ; 3.768 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 91720470 ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 91720470 ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 3     ; 3    ;
+; Unconstrained Input Port Paths  ; 793   ; 793  ;
+; Unconstrained Output Ports      ; 28    ; 28   ;
+; Unconstrained Output Port Paths ; 28    ; 28   ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Sun Mar  5 20:00:21 2017
+Info: Command: quartus_sta crush -c game
+Info: qsta_default_script.tcl version: #1
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'game.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name clk clk
+Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow Model
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -25.580
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):   -25.580    -13554.896 clk 
+Info (332146): Worst-case hold slack is 0.445
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.445         0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -1.631
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.631     -1076.991 clk 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info: Analyzing Fast Model
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -8.410
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -8.410     -4719.416 clk 
+Info (332146): Worst-case hold slack is 0.215
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.215         0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -1.380
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.380      -881.380 clk 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 589 megabytes
+    Info: Processing ended: Sun Mar  5 20:00:25 2017
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:04
+
+

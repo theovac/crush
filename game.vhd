@@ -213,25 +213,24 @@ port
 end component tensRom;
 
 component score is
-port 
-(	clk : in std_logic;
-	scoreOnes : in std_logic_vector(3 downto 0);
-	moves : in std_logic_vector(3 downto 0);
-	hex0_0 : out std_logic;
-	hex0_1 : out std_logic;
-	hex0_2 : out std_logic;
-	hex0_3 : out std_logic;
-	hex0_4 : out std_logic;
-	hex0_5 : out std_logic;
-	hex0_6 : out std_logic;
-	
-	hex1_0 : out std_logic;
-	hex1_1 : out std_logic;
-	hex1_2 : out std_logic;
-	hex1_3 : out std_logic;
-	hex1_4 : out std_logic;
-	hex1_5 : out std_logic;
-	hex1_6 :	out std_logic
+port (
+	clk : in std_logic;
+   score1 : in std_logic_vector(3 downto 0);
+   score10 : in std_logic_vector(3 downto 0);   
+	hex00 : out std_logic;
+	hex01 : out std_logic;
+	hex02 : out std_logic;
+	hex03 : out std_logic;
+	hex04 : out std_logic;
+	hex05 : out std_logic;
+	hex06 : out std_logic;
+	hex10 : out std_logic;
+	hex11 : out std_logic;
+	hex12 : out std_logic;
+	hex13 : out std_logic;
+	hex14 : out std_logic;
+	hex15 : out std_logic;
+	hex16 : out std_logic
 );
 end component score;
 
